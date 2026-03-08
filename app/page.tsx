@@ -9,10 +9,38 @@ const SLOT_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZアイウエオカキクケコサ�
 // ─── DotGrid ──────────────────────────────────────────────────────────────────
 
 function DotGrid({ cols = 6, rows = 2, color = '#1A1A2E' }: { cols?: number; rows?: number; color?: string }) {
+  const total = rows * cols
+  const [scales, setScales] = useState<number[]>(() => Array.from({ length: total }, () => 1))
+  const timers = useRef<ReturnType<typeof setTimeout>[]>([])
+
+  useEffect(() => {
+    const pulseDot = (i: number) => {
+      setScales(prev => { const n = [...prev]; n[i] = 1.4 + Math.random() * 0.8; return n })
+      const hold = setTimeout(() => {
+        setScales(prev => { const n = [...prev]; n[i] = 1; return n })
+        const next = setTimeout(() => pulseDot(i), 8000 + Math.random() * 1000)
+        timers.current.push(next)
+      }, 600 + Math.random() * 800)
+      timers.current.push(hold)
+    }
+
+    Array.from({ length: total }).forEach((_, i) => {
+      const t = setTimeout(() => pulseDot(i), Math.random() * 6000)
+      timers.current.push(t)
+    })
+
+    return () => { timers.current.forEach(clearTimeout); timers.current = [] }
+  }, [total])
+
   return (
     <div style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, 6px)`, gap: '5px' }}>
-      {Array.from({ length: rows * cols }).map((_, i) => (
-        <span key={i} style={{ width: 4, height: 4, borderRadius: '50%', display: 'block', background: color, opacity: 0.45 }} />
+      {scales.map((s, i) => (
+        <span key={i} style={{
+          width: 4, height: 4, borderRadius: '50%', display: 'block', background: color,
+          opacity: 0.45,
+          transform: `scale(${s})`,
+          transition: 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1)',
+        }} />
       ))}
     </div>
   )
