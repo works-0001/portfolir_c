@@ -99,6 +99,55 @@ function CycleImage({ srcs, alt, width, height, style }: {
   )
 }
 
+// ─── CharGrid — ambient background characters ─────────────────────────────────
+
+function CharGrid({ color = '#1A1B2C', opacity = 0.045 }: { color?: string; opacity?: number }) {
+  const COLS = 50
+  const ROWS = 15
+  const rand = () => SLOT_CHARS[Math.floor(Math.random() * SLOT_CHARS.length)]
+  const randRow = () => Array.from({ length: COLS }, rand).join('')
+
+  const [rows, setRows] = useState<string[]>(() => Array.from({ length: ROWS }, randRow))
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setRows(prev => {
+        const next = [...prev]
+        const n = 50 + Math.floor(Math.random() * 50)
+        for (let i = 0; i < n; i++) {
+          const r = Math.floor(Math.random() * ROWS)
+          const c = Math.floor(Math.random() * COLS)
+          const row = next[r].split('')
+          row[c] = rand()
+          next[r] = row.join('')
+        }
+        return next
+      })
+    }, 80)
+    return () => clearInterval(id)
+  }, [])
+
+  return (
+    <div style={{
+      position: 'absolute', inset: 0,
+      overflow: 'hidden',
+      pointerEvents: 'none',
+      userSelect: 'none',
+      color,
+      opacity,
+      fontFamily: '"DM Mono", "Courier New", monospace',
+      fontSize: 64,
+      fontWeight: 700,
+      lineHeight: '4rem',
+      letterSpacing: '0.06em',
+      whiteSpace: 'pre',
+      zIndex: 0,
+    }}>
+      {rows.map((r, i) => <div key={i}>{r}</div>)}
+    </div>
+  )
+}
+
 // ─── DotGrid ──────────────────────────────────────────────────────────────────
 
 function DotGrid({ cols = 6, rows = 2, color = '#1A1A2E' }: { cols?: number; rows?: number; color?: string }) {
@@ -379,6 +428,7 @@ export default function Portfolio() {
       {/* ══════════════════ HERO ══════════════════ */}
       <section id="hero" className="fp-section" style={{ background: '#4ECDC4' }}>
         <div className="noise" />
+        <CharGrid color="rgba(255,255,255,1)" opacity={0.1} />
 
         {/* Blobs — idle float + mouse parallax */}
         <div style={{ position: 'absolute', top: '8%',   right: '12%', width: 200, height: 200, background: '#FFD166', borderRadius: '50%', opacity: 0.6, filter: 'blur(40px)', ...blobStyle(-40, -30, 0) }} />
@@ -444,7 +494,7 @@ export default function Portfolio() {
 
       {/* ══════════════════ ABOUT ══════════════════ */}
       <section id="about" className="fp-section" style={{ background: '#FFFFFF', display: 'flex' }}>
-        <div style={{ width: '42%', background: '#F5F0EA', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '60px 40px', position: 'relative' }}>
+        <div style={{ width: '42%', background: '#F5F0EA', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '60px 40px', position: 'relative', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', top: 40, left: 40 }}><DotGrid cols={5} rows={3} /></div>
           <div className={`anim-scale d1 ${isVis(1) ? '' : 'opacity-0'}`} onMouseEnter={hOn} onMouseLeave={hOff}>
             <div style={{ width: 240, height: 240, borderRadius: '50%', overflow: 'hidden', boxShadow: '0 24px 64px rgba(0,0,0,0.12)', border: '6px solid white' }}>
@@ -461,7 +511,8 @@ export default function Portfolio() {
           </div>
         </div>
 
-        <div style={{ flex: 1, padding: '80px 70px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div style={{ flex: 1, padding: '80px 70px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+          <CharGrid opacity={0.03} />
           <div className={`anim-right d1 ${isVis(1) ? '' : 'opacity-0'}`}><DotGrid cols={6} rows={2} /></div>
           <p style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#4ECDC4', fontWeight: 600, marginTop: 24, marginBottom: 12 }}>
             <SlotText text="自己紹介" active={isAct(1)} delay={0.1} />
@@ -507,7 +558,8 @@ export default function Portfolio() {
           style={{ width: '50%', background: '#FFADB5', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
           <CycleFill srcs={IMGS.bloom} alt="Bloom" sizes="50vw" style={imgStyle(2, 28)} />
         </div>
-        <div style={{ flex: 1, padding: '80px 70px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div style={{ flex: 1, padding: '80px 70px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+          <CharGrid opacity={0.03} />
           <div className={`anim-left d1 ${isVis(2) ? '' : 'opacity-0'}`} style={{ marginBottom: 20 }}><DotGrid cols={6} rows={2} /></div>
           <span className="badge" style={{ color: '#FF6B6B', marginBottom: 20, alignSelf: 'flex-start' }}>
             <SlotText text="ブランドアイデンティティ" active={isAct(2)} />
@@ -534,7 +586,8 @@ export default function Portfolio() {
       {/* ══════════════════ TEMPO ══════════════════ */}
       <section id="proj2" className="fp-section" style={{ background: '#FAFAFA', display: 'flex' }}
         onMouseEnter={() => setHoveredSection(3)} onMouseLeave={() => setHoveredSection(null)}>
-        <div style={{ flex: 1, padding: '80px 70px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div style={{ flex: 1, padding: '80px 70px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+          <CharGrid opacity={0.03} />
           <div className={`anim-right d1 ${isVis(3) ? '' : 'opacity-0'}`} style={{ marginBottom: 20 }}><DotGrid cols={6} rows={2} /></div>
           <span className="badge" style={{ color: '#FFD166', marginBottom: 20, alignSelf: 'flex-start' }}>
             <SlotText text="UI / UX デザイン" active={isAct(3)} />
@@ -565,7 +618,8 @@ export default function Portfolio() {
       {/* ══════════════════ LUMI ══════════════════ */}
       <section id="proj3" className="fp-section" style={{ background: '#1A1A2E', display: 'flex' }}
         onMouseEnter={() => setHoveredSection(4)} onMouseLeave={() => setHoveredSection(null)}>
-        <div style={{ flex: 1, padding: '80px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative' }}>
+        <div style={{ flex: 1, padding: '80px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+          <CharGrid color="rgba(255,255,255,1)" opacity={0.03} />
           <div style={{ position: 'absolute', bottom: 60, right: 60 }}><DotGrid cols={5} rows={4} color="rgba(255,255,255,0.3)" /></div>
           <span className="badge" style={{ color: '#95E1D3', marginBottom: 24, alignSelf: 'flex-start' }}>
             <SlotText text="ウェブデザイン" active={isAct(4)} />
@@ -615,7 +669,8 @@ export default function Portfolio() {
           style={{ width: '50%', background: '#A8E6CF', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
           <CycleFill srcs={IMGS.nectar} alt="Nectar" sizes="50vw" style={imgStyle(5, 28)} />
         </div>
-        <div style={{ flex: 1, padding: '80px 70px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div style={{ flex: 1, padding: '80px 70px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+          <CharGrid opacity={0.03} />
           <div className={`anim-left d1 ${isVis(5) ? '' : 'opacity-0'}`} style={{ marginBottom: 20 }}><DotGrid cols={6} rows={2} /></div>
           <span className="badge" style={{ color: '#4ECDC4', marginBottom: 20, alignSelf: 'flex-start' }}>
             <SlotText text="パッケージデザイン" active={isAct(5)} />
@@ -642,7 +697,8 @@ export default function Portfolio() {
       {/* ══════════════════ PULSE ══════════════════ */}
       <section id="proj5" className="fp-section" style={{ background: '#FFF8F0', display: 'flex' }}
         onMouseEnter={() => setHoveredSection(6)} onMouseLeave={() => setHoveredSection(null)}>
-        <div style={{ flex: 1, padding: '80px 70px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div style={{ flex: 1, padding: '80px 70px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+          <CharGrid opacity={0.03} />
           <div className={`anim-right d1 ${isVis(6) ? '' : 'opacity-0'}`} style={{ marginBottom: 20 }}><DotGrid cols={6} rows={2} /></div>
           <span className="badge" style={{ color: '#FF6B6B', marginBottom: 20, alignSelf: 'flex-start' }}>
             <SlotText text="データビジュアライゼーション" active={isAct(6)} />
@@ -671,8 +727,9 @@ export default function Portfolio() {
       </section>
 
       {/* ══════════════════ MORE WORK ══════════════════ */}
-      <section id="proj6" className="fp-section" style={{ background: '#FFFFFF', display: 'flex', flexDirection: 'column', padding: '60px 60px 40px' }}
+      <section id="proj6" className="fp-section" style={{ background: '#FFFFFF', display: 'flex', flexDirection: 'column', padding: '60px 60px 40px', position: 'relative', overflow: 'hidden' }}
         onMouseEnter={() => setHoveredSection(7)} onMouseLeave={() => setHoveredSection(null)}>
+        <CharGrid opacity={0.03} />
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 32 }}>
           <div>
             <div className={`anim-up d1 ${isVis(7) ? '' : 'opacity-0'}`} style={{ marginBottom: 12 }}><DotGrid cols={6} rows={2} /></div>
@@ -713,6 +770,7 @@ export default function Portfolio() {
       <section id="contact" className="fp-section" style={{ background: '#FFFFFF', display: 'flex' }}
         onMouseEnter={() => setHoveredSection(8)} onMouseLeave={() => setHoveredSection(null)}>
         <div style={{ flex: 1, padding: '80px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+          <CharGrid opacity={0.03} />
           <div style={{ position: 'absolute', bottom: -60, left: -60, width: 300, height: 300, background: '#4ECDC4', borderRadius: '50%', opacity: 0.08, ...blobStyle(30, 25, 1.7) }} />
           <div style={{ position: 'absolute', top: -40, right: -40, width: 200, height: 200, background: '#FFD166', borderRadius: '50%', opacity: 0.12, ...blobStyle(-22, 18, 3.9) }} />
 

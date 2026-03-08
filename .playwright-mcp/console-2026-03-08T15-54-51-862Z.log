@@ -6674,3 +6674,920 @@ https://react.dev/link/hydration-mismatch
     at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
     at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
     at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9426851ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               コBKチMPクケシ1EQLアテ6クWヌTQ9Uエエシエ2スエ3ヌ2YJP125ソネケエ68サキテ3テナADコRコ8VQI1ケX1ソ85IXYキIVTVO9L3ク83サ9コヌ0...
+-                               EタニテイNCJVトスQナ3I5BチIIヌナXトケVクTスOLエYRPスRKウネ4KケVRクセイZLネQセZクY14テチケ1テYMタXセイ1ア6サトY2IAニ6FノソヌアGJ...
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9448560ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               アナチネBセサタエ3Nシナ8ネAカオMBBRカトタネシ6LZ2ネ3サ6CRZT89OY8ウM516QスNソZCヌV8サTLIカニRタW4シCWエオCS7ナ58R9クSPCアオ...
+-                               エエウネネCNCDQイEソノセ2ウソナウ0サQCWSRテLカQN7テ3W0JZNAXクB8イツ8ス0V0サFAJソウPMケシコアXQソチHTシツR3タセウENツケR78タカV...
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9543446ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               Rアキ7WLカYLコシイノ79タタEツノDXUE1X0JツスナナUエZYA6WEFナNT9O45Lト8PソヌXJNコアCTSナヌLQHコYAOFHSNMスVGNクS41Jヌ9...
+-                               BサB01エケテシクコツイ8WEケトPニAEOAキイQXWナイXサエソクSIカコウVLセCLTPBAエIT9ヌニSキ22SトクキケWカUEトMK0WFイアOスYコノス2トFイ...
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9590704ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               スオJ9セFネテH9P9KAサネ4IサTチニJウキGサウネFエカ23SスツタケGニK7ソサエMFチナQ3CクIトイ3ソナエナセXUXコネヌサIネQWネNソHエ9YJウIPヌノ...
+-                               U83コGアタカ2コシXケJYNUDテAナスMMQF07V8クKCZW7チ6VF2KアGUJYETAQCイニ9Lニ6キ8M1テQUGR83チタタト91FUエテXソテ6カ5Fク...
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9599425ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               80ネケWAコAエ7
+-                               Mサ697チヌ2ヌ1
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9610382ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               オ
+-                               カ
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9618625ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               オ
+-                               タ
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9627077ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               Y
+-                               P
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9649675ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               C
+-                               ネ
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9662961ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               3ケコXGシサキ53ケキJVネQチソX2VWテ2テサQLツイテスナM7アヌシケトセキウ50LOMSヌ
+-                               OナADKDBヌ0キKウDWQEトウQDGX12エイNLウ7RSニアTナ3QBEUKチノツNP1サナ
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9681476ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               EネクスKツOSJイ6ソニアキエR3T6GナエZGZトオNコSナ1Bニ6SMト6
+-                               クナOS8D93コSアナFヌノ6W2ナR7チナアTイ7ナPZオスクトケBF4Qオ
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9687419ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               チD8タ6ケCBヌ0トHPNタKニTMKイCコ43ノHWテ5
+-                               イOCWシPキ25SニタXイSオチコニTUアHウネタ2ス3L
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9708083ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               テSBHキニLヌタタカKニトVソJ4TネXセYケPカOキテJ0ENA357AJテ2エEDZW2テ2N
+-                               YカネXLZQ0ナX3IカAGBZQ0ナDサ2XXシチNWケイエ3テJカツス4ノIKXエUナGカVサ
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9727444ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               2QエNV8トVクABニ4HカACFGHGHエZ3コVEWMFアケノシ4ノ2VツイノオセVDSテエG
+-                               6ZVNチタKヌセヌHケ3WソWAニクU0テLBUス4CFス8TMIトヌセA77WナセセTコ7ヌ8B
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9738651ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               6WWト9エケK5テK0Wウヌク4ツWDウPセZPMAタUC8Vネ1カTトYウセエLケ0WキシC95
+-                               ア3コ31ツケテナEタMノB2HRス0ツイNUWOHXNBWトYテTQO1LトネC1E8トニJCコ4
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9754928ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               OU4アイAソWアカ3DHB8クウGキEトニOCJコケ32WVソチRコノナMV52UカエSUMウウソ
+-                               チケFJRJCQヌコJM0ナコ1キ8B0ソイYDキUPス2AサRサツ1UQH3RJGウTセNEFYテ
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9829778ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               ヌテナGJノカキ4カVLタNGDイセソSMセコヌAアYF1CO0ク2RMGJ55B7テCCウウPQタ
+-                               TWタJニQSタクセアRナDK1RN1EコDJRXBイチ5HTH5トツEイテB0ケ3ツエMネXVアY
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 9845389ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="/" loading={null}>
+        <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+          <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                  <SegmentViewNode type="page" pagePath="page.tsx">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                      <Portfolio params={Promise} searchParams={Promise}>
+                        <div>
+                        <div>
+                        <nav>
+                        <section id="hero" className="fp-section" style={{...}}>
+                          <div>
+                          <CharGrid color="rgba(255,2..." opacity={0.1}>
+                            <div style={{position:"...", ...}}>
+                              <div>
++                               チオコ2MネLVケ3Yト32ナ7KトGITY8Wト0P9UテHSセG8R3コタオ7テタL4M4Hニネ
+-                               JチナケZアヌW96Gコ6クニ66ス6Xノ9UJアRサYZ6T9XテQ39BSPEアCCZ68HEシ
+                              ...
+                          ...
+                        ...
+                  ...
+                ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at prepareToHydrateHostInstance (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3402:23)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6934:60)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
