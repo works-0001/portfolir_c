@@ -102,8 +102,8 @@ function CycleImage({ srcs, alt, width, height, style }: {
 // ─── CharGrid — ambient background characters ─────────────────────────────────
 
 function CharGrid({ color = '#1A1B2C', opacity = 0.045 }: { color?: string; opacity?: number }) {
-  const COLS = 50
-  const ROWS = 15
+  const COLS = 10
+  const ROWS = 5
   const rand = () => SLOT_CHARS[Math.floor(Math.random() * SLOT_CHARS.length)]
   const randRow = () => Array.from({ length: COLS }, rand).join('')
 
@@ -113,7 +113,7 @@ function CharGrid({ color = '#1A1B2C', opacity = 0.045 }: { color?: string; opac
     const id = setInterval(() => {
       setRows(prev => {
         const next = [...prev]
-        const n = 50 + Math.floor(Math.random() * 50)
+        const n = 5 + Math.floor(Math.random() * 10)
         for (let i = 0; i < n; i++) {
           const r = Math.floor(Math.random() * ROWS)
           const c = Math.floor(Math.random() * COLS)
@@ -123,7 +123,7 @@ function CharGrid({ color = '#1A1B2C', opacity = 0.045 }: { color?: string; opac
         }
         return next
       })
-    }, 80)
+    }, 600)
     return () => clearInterval(id)
   }, [])
 
@@ -136,9 +136,9 @@ function CharGrid({ color = '#1A1B2C', opacity = 0.045 }: { color?: string; opac
       color,
       opacity,
       fontFamily: '"DM Mono", "Courier New", monospace',
-      fontSize: 64,
+      fontSize: 300,
       fontWeight: 700,
-      lineHeight: '4rem',
+      lineHeight: '17rem',
       letterSpacing: '0.06em',
       whiteSpace: 'pre',
       zIndex: 0,
@@ -493,46 +493,38 @@ export default function Portfolio() {
       </section>
 
       {/* ══════════════════ ABOUT ══════════════════ */}
-      <section id="about" className="fp-section" style={{ background: '#FFFFFF', display: 'flex' }}>
-        <div style={{ width: '42%', background: '#F5F0EA', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '60px 40px', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', top: 40, left: 40 }}><DotGrid cols={5} rows={3} /></div>
-          <div className={`anim-scale d1 ${isVis(1) ? '' : 'opacity-0'}`} onMouseEnter={hOn} onMouseLeave={hOff}>
-            <div style={{ width: 240, height: 240, borderRadius: '50%', overflow: 'hidden', boxShadow: '0 24px 64px rgba(0,0,0,0.12)', border: '6px solid white' }}>
+      <section id="about" className="fp-section" style={{ background: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+        <CharGrid opacity={0.04} />
+
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', maxWidth: 600, position: 'relative', zIndex: 1 }}>
+          {/* Portrait */}
+          <div className={`anim-scale d1 ${isVis(1) ? '' : 'opacity-0'}`} onMouseEnter={hOn} onMouseLeave={hOff} style={{ marginBottom: 28 }}>
+            <div style={{ width: 140, height: 140, borderRadius: '50%', overflow: 'hidden', boxShadow: '0 16px 48px rgba(0,0,0,0.12)', border: '4px solid white' }}>
               <Image src="/images/portrait.jpg"
-                alt="Isabella Chen" width={240} height={240}
+                alt="Isabella Chen" width={140} height={140}
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
-            <p style={{ textAlign: 'center', marginTop: 20, fontFamily: 'DM Sans', fontWeight: 600, fontSize: 18, color: '#1A1A2E' }}>
-              <SlotText text="Isabella Chen" active={isAct(1)} delay={0.1} />
-            </p>
-            <p style={{ textAlign: 'center', fontSize: 12, color: '#999', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: 4 }}>
-              <SlotText text="クリエイティブディレクター" active={isAct(1)} delay={0.2} />
-            </p>
           </div>
-        </div>
 
-        <div style={{ flex: 1, padding: '80px 70px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
-          <CharGrid opacity={0.03} />
-          <div className={`anim-right d1 ${isVis(1) ? '' : 'opacity-0'}`}><DotGrid cols={6} rows={2} /></div>
-          <p style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#4ECDC4', fontWeight: 600, marginTop: 24, marginBottom: 12 }}>
+          <p style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#4ECDC4', fontWeight: 600, marginBottom: 16 }}>
             <SlotText text="自己紹介" active={isAct(1)} delay={0.1} />
           </p>
-          <SmoothBox style={{ marginBottom: 28 }}>
-            <h2 className="font-elegant" style={{ fontSize: 48, fontWeight: 300, lineHeight: 1.15, color: '#1A1A2E' }}>
+          <SmoothBox style={{ marginBottom: 28 }} innerStyle={{ textAlign: 'center' }}>
+            <h2 className="font-elegant" style={{ fontSize: 52, fontWeight: 300, lineHeight: 1.15, color: '#1A1A2E' }}>
               <SlotText text="記憶に残るブランドを" active={isAct(1)} delay={0.15} /><br />
               <em><SlotText text="つくる。" active={isAct(1)} delay={0.4} /></em>
             </h2>
           </SmoothBox>
-          <SmoothBox style={{ marginBottom: 20 }} innerStyle={{ fontSize: 14, lineHeight: 1.9, color: '#666', maxWidth: 480 }}>
+          <SmoothBox style={{ marginBottom: 16 }} innerStyle={{ fontSize: 14, lineHeight: 1.9, color: '#666' }}>
             <SlotText speed="fast" active={isAct(1)} delay={0.3}
               text="東京を拠点にするクリエイティブディレクターとして、ブランドアイデンティティ、パッケージング、デジタル体験を専門にしています。8年以上の経験を通じて、美しく機能的なデザインを追求し続けています。" />
           </SmoothBox>
-          <SmoothBox innerStyle={{ fontSize: 14, lineHeight: 1.9, color: '#666', maxWidth: 480 }}>
+          <SmoothBox innerStyle={{ fontSize: 14, lineHeight: 1.9, color: '#666' }}>
             <SlotText speed="fast" active={isAct(1)} delay={0.5}
               text="すべてのプロジェクトはコラボレーション。創業者、マーケター、クリエイターと緊密に連携し、ビジョンを一貫したビジュアル言語へと昇華させます。" />
           </SmoothBox>
-          <div className={`anim-right d6 ${isVis(1) ? '' : 'opacity-0'}`}
-            style={{ display: 'flex', gap: 48, marginTop: 40, paddingTop: 32, borderTop: '1px solid rgba(0,0,0,0.08)' }}>
+          <div className={`anim-scale d6 ${isVis(1) ? '' : 'opacity-0'}`}
+            style={{ display: 'flex', gap: 56, marginTop: 40, paddingTop: 32, borderTop: '1px solid rgba(0,0,0,0.08)' }}>
             {[
               ['8年+', '経験年数', 0.35],
               ['120+', 'プロジェクト', 0.45],
@@ -552,7 +544,7 @@ export default function Portfolio() {
       </section>
 
       {/* ══════════════════ BLOOM ══════════════════ */}
-      <section id="proj1" className="fp-section" style={{ background: '#FFFFFF', display: 'flex' }}
+      <section id="proj1" className="fp-section" style={{ background: '#FFF8F0', display: 'flex' }}
         onMouseEnter={() => setHoveredSection(2)} onMouseLeave={() => setHoveredSection(null)}>
         <div className={`anim-scale d1 ${isVis(2) ? '' : 'opacity-0'}`}
           style={{ width: '50%', background: '#FFADB5', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
@@ -618,6 +610,10 @@ export default function Portfolio() {
       {/* ══════════════════ LUMI ══════════════════ */}
       <section id="proj3" className="fp-section" style={{ background: '#1A1A2E', display: 'flex' }}
         onMouseEnter={() => setHoveredSection(4)} onMouseLeave={() => setHoveredSection(null)}>
+        <div className={`anim-scale d2 ${isVis(4) ? '' : 'opacity-0'}`}
+          style={{ width: '50%', background: '#0d1117', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+          <CycleFill srcs={IMGS.lumi} alt="Lumi" sizes="40vw" style={imgStyle(4, 28, { opacity: 0.75 })} />
+        </div>
         <div style={{ flex: 1, padding: '80px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
           <CharGrid color="rgba(255,255,255,1)" opacity={0.03} />
           <div style={{ position: 'absolute', bottom: 60, right: 60 }}><DotGrid cols={5} rows={4} color="rgba(255,255,255,0.3)" /></div>
@@ -656,19 +652,11 @@ export default function Portfolio() {
             ))}
           </div>
         </div>
-        <div className={`anim-scale d2 ${isVis(4) ? '' : 'opacity-0'}`}
-          style={{ width: '40%', background: '#0d1117', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
-          <CycleFill srcs={IMGS.lumi} alt="Lumi" sizes="40vw" style={imgStyle(4, 28, { opacity: 0.75 })} />
-        </div>
       </section>
 
       {/* ══════════════════ NECTAR ══════════════════ */}
       <section id="proj4" className="fp-section" style={{ background: '#FFFFFF', display: 'flex' }}
         onMouseEnter={() => setHoveredSection(5)} onMouseLeave={() => setHoveredSection(null)}>
-        <div className={`anim-scale d1 ${isVis(5) ? '' : 'opacity-0'}`}
-          style={{ width: '50%', background: '#A8E6CF', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
-          <CycleFill srcs={IMGS.nectar} alt="Nectar" sizes="50vw" style={imgStyle(5, 28)} />
-        </div>
         <div style={{ flex: 1, padding: '80px 70px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
           <CharGrid opacity={0.03} />
           <div className={`anim-left d1 ${isVis(5) ? '' : 'opacity-0'}`} style={{ marginBottom: 20 }}><DotGrid cols={6} rows={2} /></div>
@@ -692,11 +680,19 @@ export default function Portfolio() {
             <MetaRow label="年"             value="2024 / 01"           active={isAct(5)} rowDelay={0.6} />
           </div>
         </div>
+        <div className={`anim-scale d1 ${isVis(5) ? '' : 'opacity-0'}`}
+          style={{ width: '50%', background: '#A8E6CF', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+          <CycleFill srcs={IMGS.nectar} alt="Nectar" sizes="50vw" style={imgStyle(5, 28)} />
+        </div>
       </section>
 
       {/* ══════════════════ PULSE ══════════════════ */}
       <section id="proj5" className="fp-section" style={{ background: '#FFF8F0', display: 'flex' }}
         onMouseEnter={() => setHoveredSection(6)} onMouseLeave={() => setHoveredSection(null)}>
+        <div className={`anim-scale d1 ${isVis(6) ? '' : 'opacity-0'}`}
+          style={{ width: '50%', background: '#FFD166', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
+          <CycleFill srcs={IMGS.pulse} alt="Pulse" sizes="50vw" style={imgStyle(6, 28)} />
+        </div>
         <div style={{ flex: 1, padding: '80px 70px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
           <CharGrid opacity={0.03} />
           <div className={`anim-right d1 ${isVis(6) ? '' : 'opacity-0'}`} style={{ marginBottom: 20 }}><DotGrid cols={6} rows={2} /></div>
@@ -719,10 +715,6 @@ export default function Portfolio() {
             <MetaRow label="カテゴリ"       value="UIデザイン / データ可視化" active={isAct(6)} rowDelay={0.5} />
             <MetaRow label="年"             value="2023 / 08"            active={isAct(6)} rowDelay={0.6} />
           </div>
-        </div>
-        <div className={`anim-scale d1 ${isVis(6) ? '' : 'opacity-0'}`}
-          style={{ width: '50%', background: '#FFD166', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
-          <CycleFill srcs={IMGS.pulse} alt="Pulse" sizes="50vw" style={imgStyle(6, 28)} />
         </div>
       </section>
 
