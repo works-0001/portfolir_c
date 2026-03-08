@@ -6,6 +6,69 @@ import Image from 'next/image'
 const SECTION_IDS = ['hero', 'about', 'proj1', 'proj2', 'proj3', 'proj4', 'proj5', 'proj6', 'contact']
 const SLOT_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZアイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789'
 
+const IMGS = {
+  hero1:     ['/images/hero1.jpg',     '/images/hero1b.jpg'],
+  hero2:     ['/images/hero2.jpg',     '/images/hero2b.jpg'],
+  bloom:     ['/images/bloom.jpg',     '/images/bloom2.jpg'],
+  tempo:     ['/images/tempo.jpg',     '/images/tempo2.jpg'],
+  lumi:      ['/images/lumi.jpg',      '/images/lumi2.jpg'],
+  nectar:    ['/images/nectar.jpg',    '/images/nectar2.jpg'],
+  pulse:     ['/images/pulse.jpg',     '/images/pulse2.jpg'],
+  wave:      ['/images/wave.jpg',      '/images/wave2.jpg'],
+  clockwork: ['/images/clockwork.jpg', '/images/clockwork2.jpg'],
+  sweet:     ['/images/sweet.jpg',     '/images/sweet2.jpg'],
+  contact1:  ['/images/contact1.jpg'],
+  contact2:  ['/images/contact2.jpg'],
+}
+
+// ─── CycleFill — cross-fading fill-mode images ────────────────────────────────
+
+function CycleFill({ srcs, alt, sizes, style }: {
+  srcs: string[]; alt: string; sizes?: string; style?: React.CSSProperties
+}) {
+  const [curr, setCurr] = useState(0)
+  useEffect(() => {
+    if (srcs.length <= 1) return
+    let id: ReturnType<typeof setInterval>
+    const t = setTimeout(() => {
+      id = setInterval(() => setCurr(i => (i + 1) % srcs.length), 7000)
+    }, Math.random() * 4000)
+    return () => { clearTimeout(t); clearInterval(id) }
+  }, [srcs.length])
+  return (
+    <>
+      {srcs.map((src, i) => (
+        <Image key={src} src={src} alt={i === 0 ? alt : ''} fill sizes={sizes}
+          style={{ ...style, opacity: i === curr ? 1 : 0, transition: 'opacity 1.2s ease', zIndex: i === curr ? 1 : 0 }} />
+      ))}
+    </>
+  )
+}
+
+// ─── CycleImage — cross-fading fixed-size images ──────────────────────────────
+
+function CycleImage({ srcs, alt, width, height, style }: {
+  srcs: string[]; alt: string; width: number; height: number; style?: React.CSSProperties
+}) {
+  const [curr, setCurr] = useState(0)
+  useEffect(() => {
+    if (srcs.length <= 1) return
+    let id: ReturnType<typeof setInterval>
+    const t = setTimeout(() => {
+      id = setInterval(() => setCurr(i => (i + 1) % srcs.length), 7000)
+    }, Math.random() * 4000)
+    return () => { clearTimeout(t); clearInterval(id) }
+  }, [srcs.length])
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      {srcs.map((src, i) => (
+        <Image key={src} src={src} alt={i === 0 ? alt : ''} width={width} height={height}
+          style={{ ...style, position: 'absolute', inset: 0, opacity: i === curr ? 1 : 0, transition: 'opacity 1.2s ease' }} />
+      ))}
+    </div>
+  )
+}
+
 // ─── DotGrid ──────────────────────────────────────────────────────────────────
 
 function DotGrid({ cols = 6, rows = 2, color = '#1A1A2E' }: { cols?: number; rows?: number; color?: string }) {
@@ -123,6 +186,40 @@ function SlotText({
   }, [active]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return <>{displayed.join('')}</>
+}
+
+// ─── SmoothBox — animates height changes to prevent layout jitter ─────────────
+// Wraps content in a div whose height smoothly transitions whenever the inner
+// content reflows (e.g. during slot animation). Use instead of <p>/<div> for
+// any block that contains SlotText and might change height.
+
+function SmoothBox({ children, style, innerStyle }: {
+  children: React.ReactNode
+  style?: React.CSSProperties
+  innerStyle?: React.CSSProperties
+}) {
+  const innerRef = useRef<HTMLDivElement>(null)
+  const [height, setHeight] = useState<number | undefined>()
+  const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    const el = innerRef.current
+    if (!el) return
+    setHeight(el.scrollHeight)
+    let ro: ResizeObserver
+    const t = setTimeout(() => {
+      setReady(true)
+      ro = new ResizeObserver(() => setHeight(el.scrollHeight))
+      ro.observe(el)
+    }, 300)
+    return () => { clearTimeout(t); ro?.disconnect() }
+  }, [])
+
+  return (
+    <div style={{ overflow: 'hidden', height: height ?? 'auto', transition: ready ? 'height 0.28s ease' : 'none', ...style }}>
+      <div ref={innerRef} style={innerStyle}>{children}</div>
+    </div>
+  )
 }
 
 // ─── MetaRow with slot text ───────────────────────────────────────────────────
@@ -291,17 +388,15 @@ export default function Portfolio() {
         <div style={{ position: 'absolute', bottom: '10%', right: '10%', ...blobStyle(22, 18, 1.1) }}>
           <div className={`img-zoom anim-scale d5 ${isVis(0) ? '' : 'opacity-0'}`}
             onMouseEnter={hOn} onMouseLeave={hOff}
-            style={{ width: 180, height: 180, borderRadius: 12, boxShadow: '0 20px 60px rgba(0,0,0,0.2)' }}>
-            <Image src="/images/hero1.jpg"
-              alt="カラフルなパイナップル" width={180} height={180} style={{ borderRadius: 12 }} />
+            style={{ width: 180, height: 180, borderRadius: 12, boxShadow: '0 20px 60px rgba(0,0,0,0.2)', overflow: 'hidden' }}>
+            <CycleImage srcs={IMGS.hero1} alt="カラフルなパイナップル" width={180} height={180} style={{ objectFit: 'cover', borderRadius: 12 }} />
           </div>
         </div>
         <div style={{ position: 'absolute', bottom: '22%', left: '6%', ...blobStyle(-28, 20, 3.2) }}>
           <div className={`img-zoom anim-scale d7 ${isVis(0) ? '' : 'opacity-0'}`}
             onMouseEnter={hOn} onMouseLeave={hOff}
-            style={{ width: 130, height: 130, borderRadius: 10, boxShadow: '0 16px 48px rgba(0,0,0,0.18)' }}>
-            <Image src="/images/hero2.jpg"
-              alt="温かいコーヒー" width={130} height={130} style={{ borderRadius: 10 }} />
+            style={{ width: 130, height: 130, borderRadius: 10, boxShadow: '0 16px 48px rgba(0,0,0,0.18)', overflow: 'hidden' }}>
+            <CycleImage srcs={IMGS.hero2} alt="温かいコーヒー" width={130} height={130} style={{ objectFit: 'cover', borderRadius: 10 }} />
           </div>
         </div>
 
@@ -341,18 +436,20 @@ export default function Portfolio() {
           <p style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#4ECDC4', fontWeight: 600, marginTop: 24, marginBottom: 12 }}>
             <SlotText text="自己紹介" active={isAct(1)} delay={0.1} />
           </p>
-          <h2 className="font-elegant" style={{ fontSize: 48, fontWeight: 300, lineHeight: 1.15, color: '#1A1A2E', marginBottom: 28 }}>
-            <SlotText text="記憶に残るブランドを" active={isAct(1)} delay={0.15} /><br />
-            <em><SlotText text="つくる。" active={isAct(1)} delay={0.4} /></em>
-          </h2>
-          <p style={{ fontSize: 14, lineHeight: 1.9, color: '#666', maxWidth: 480, marginBottom: 20 }}>
+          <SmoothBox style={{ marginBottom: 28 }}>
+            <h2 className="font-elegant" style={{ fontSize: 48, fontWeight: 300, lineHeight: 1.15, color: '#1A1A2E' }}>
+              <SlotText text="記憶に残るブランドを" active={isAct(1)} delay={0.15} /><br />
+              <em><SlotText text="つくる。" active={isAct(1)} delay={0.4} /></em>
+            </h2>
+          </SmoothBox>
+          <SmoothBox style={{ marginBottom: 20 }} innerStyle={{ fontSize: 14, lineHeight: 1.9, color: '#666', maxWidth: 480 }}>
             <SlotText speed="fast" active={isAct(1)} delay={0.3}
               text="東京を拠点にするクリエイティブディレクターとして、ブランドアイデンティティ、パッケージング、デジタル体験を専門にしています。8年以上の経験を通じて、美しく機能的なデザインを追求し続けています。" />
-          </p>
-          <p style={{ fontSize: 14, lineHeight: 1.9, color: '#666', maxWidth: 480 }}>
+          </SmoothBox>
+          <SmoothBox innerStyle={{ fontSize: 14, lineHeight: 1.9, color: '#666', maxWidth: 480 }}>
             <SlotText speed="fast" active={isAct(1)} delay={0.5}
               text="すべてのプロジェクトはコラボレーション。創業者、マーケター、クリエイターと緊密に連携し、ビジョンを一貫したビジュアル言語へと昇華させます。" />
-          </p>
+          </SmoothBox>
           <div className={`anim-right d6 ${isVis(1) ? '' : 'opacity-0'}`}
             style={{ display: 'flex', gap: 48, marginTop: 40, paddingTop: 32, borderTop: '1px solid rgba(0,0,0,0.08)' }}>
             {[
@@ -378,22 +475,23 @@ export default function Portfolio() {
         onMouseEnter={() => setHoveredSection(2)} onMouseLeave={() => setHoveredSection(null)}>
         <div className={`anim-scale d1 ${isVis(2) ? '' : 'opacity-0'}`}
           style={{ width: '50%', background: '#FFADB5', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
-          <Image src="/images/bloom.jpg"
-            alt="Bloom" fill sizes="50vw" style={imgStyle(2, 28)} />
+          <CycleFill srcs={IMGS.bloom} alt="Bloom" sizes="50vw" style={imgStyle(2, 28)} />
         </div>
         <div style={{ flex: 1, padding: '80px 70px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div className={`anim-left d1 ${isVis(2) ? '' : 'opacity-0'}`} style={{ marginBottom: 20 }}><DotGrid cols={6} rows={2} /></div>
           <span className="badge" style={{ color: '#FF6B6B', marginBottom: 20, alignSelf: 'flex-start' }}>
             <SlotText text="ブランドアイデンティティ" active={isAct(2)} />
           </span>
-          <h2 className="font-elegant" style={{ fontSize: 52, fontWeight: 300, lineHeight: 1.1, color: '#1A1A2E', marginBottom: 24 }}>
-            <SlotText text="Bloom" active={isAct(2)} /><br />
-            <em><SlotText text="Botanicals" active={isAct(2)} delay={0.2} /></em>
-          </h2>
-          <p style={{ fontSize: 13.5, lineHeight: 1.85, color: '#777', maxWidth: 380 }}>
+          <SmoothBox style={{ marginBottom: 24 }}>
+            <h2 className="font-elegant" style={{ fontSize: 52, fontWeight: 300, lineHeight: 1.1, color: '#1A1A2E' }}>
+              <SlotText text="Bloom" active={isAct(2)} /><br />
+              <em><SlotText text="Botanicals" active={isAct(2)} delay={0.2} /></em>
+            </h2>
+          </SmoothBox>
+          <SmoothBox innerStyle={{ fontSize: 13.5, lineHeight: 1.85, color: '#777', maxWidth: 380 }}>
             <SlotText speed="fast" active={isAct(2)} delay={0.2}
               text="ボタニカルスキンケアブランドの完全なビジュアルアイデンティティ。花弁の幾何学、葉の構造、穏やかなグラデーションから着想を得たパッケージは、自然への瞑想のような美しさを持ちます。" />
-          </p>
+          </SmoothBox>
           <div className={`meta-table anim-left d5 ${isVis(2) ? '' : 'opacity-0'}`} style={{ marginTop: 32, maxWidth: 380 }}>
             <MetaRow label="プロジェクト名" value="Bloom Botanicals"  active={isAct(2)} rowDelay={0.3} />
             <MetaRow label="クライアント"   value="中村 サラ"          active={isAct(2)} rowDelay={0.4} />
@@ -411,14 +509,16 @@ export default function Portfolio() {
           <span className="badge" style={{ color: '#FFD166', marginBottom: 20, alignSelf: 'flex-start' }}>
             <SlotText text="UI / UX デザイン" active={isAct(3)} />
           </span>
-          <h2 className="font-elegant" style={{ fontSize: 52, fontWeight: 300, lineHeight: 1.1, color: '#1A1A2E', marginBottom: 24 }}>
-            <SlotText text="Tempo" active={isAct(3)} /><br />
-            <em><SlotText text="Music App" active={isAct(3)} delay={0.2} /></em>
-          </h2>
-          <p style={{ fontSize: 13.5, lineHeight: 1.85, color: '#777', maxWidth: 380 }}>
+          <SmoothBox style={{ marginBottom: 24 }}>
+            <h2 className="font-elegant" style={{ fontSize: 52, fontWeight: 300, lineHeight: 1.1, color: '#1A1A2E' }}>
+              <SlotText text="Tempo" active={isAct(3)} /><br />
+              <em><SlotText text="Music App" active={isAct(3)} delay={0.2} /></em>
+            </h2>
+          </SmoothBox>
+          <SmoothBox innerStyle={{ fontSize: 13.5, lineHeight: 1.85, color: '#777', maxWidth: 380 }}>
             <SlotText speed="fast" active={isAct(3)} delay={0.2}
               text="新進アーティストを支援する独立系音楽ストリーミングプラットフォームのエンドツーエンドUXデザイン。レコード店でビニールをめくる感触のような、温かみのある触覚的な美学を追求しました。" />
-          </p>
+          </SmoothBox>
           <div className={`meta-table anim-right d5 ${isVis(3) ? '' : 'opacity-0'}`} style={{ marginTop: 32, maxWidth: 380 }}>
             <MetaRow label="プロジェクト名" value="Tempo App"            active={isAct(3)} rowDelay={0.3} />
             <MetaRow label="クライアント"   value="マシュー ブルックス"    active={isAct(3)} rowDelay={0.4} />
@@ -428,8 +528,7 @@ export default function Portfolio() {
         </div>
         <div className={`anim-scale d1 ${isVis(3) ? '' : 'opacity-0'}`}
           style={{ width: '50%', background: '#FFD166', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
-          <Image src="/images/tempo.jpg"
-            alt="Tempo" fill sizes="50vw" style={imgStyle(3, 28)} />
+          <CycleFill srcs={IMGS.tempo} alt="Tempo" sizes="50vw" style={imgStyle(3, 28)} />
         </div>
       </section>
 
@@ -441,18 +540,20 @@ export default function Portfolio() {
           <span className="badge" style={{ color: '#95E1D3', marginBottom: 24, alignSelf: 'flex-start' }}>
             <SlotText text="ウェブデザイン" active={isAct(4)} />
           </span>
-          <h2 className="font-elegant" style={{ fontSize: 60, fontWeight: 300, lineHeight: 1.05, color: 'white', marginBottom: 28 }}>
-            <SlotText text="Lumi" active={isAct(4)} /><br />
-            <em style={{ color: '#95E1D3' }}><SlotText text="Architecture" active={isAct(4)} delay={0.2} /></em>
-          </h2>
-          <p style={{ fontSize: 14, lineHeight: 1.9, color: 'rgba(255,255,255,0.55)', maxWidth: 440 }}>
+          <SmoothBox style={{ marginBottom: 28 }}>
+            <h2 className="font-elegant" style={{ fontSize: 60, fontWeight: 300, lineHeight: 1.05, color: 'white' }}>
+              <SlotText text="Lumi" active={isAct(4)} /><br />
+              <em style={{ color: '#95E1D3' }}><SlotText text="Architecture" active={isAct(4)} delay={0.2} /></em>
+            </h2>
+          </SmoothBox>
+          <SmoothBox innerStyle={{ fontSize: 14, lineHeight: 1.9, color: 'rgba(255,255,255,0.55)', maxWidth: 440 }}>
             <SlotText speed="fast" active={isAct(4)} delay={0.2}
               text="大阪を拠点にするモダニストの建築スタジオのウェブサイトリデザイン。「光を素材として扱う」という哲学を、デジタル体験に翻訳することが使命でした。" />
-          </p>
-          <p style={{ fontSize: 14, lineHeight: 1.9, color: 'rgba(255,255,255,0.55)', maxWidth: 440, marginTop: 16 }}>
+          </SmoothBox>
+          <SmoothBox style={{ marginTop: 16 }} innerStyle={{ fontSize: 14, lineHeight: 1.9, color: 'rgba(255,255,255,0.55)', maxWidth: 440 }}>
             <SlotText speed="fast" active={isAct(4)} delay={0.45}
               text="WebGLを使ったカスタムスクロールナラティブを構築し、各セクションが光と影を通じてジオメトリを現す演出を実現しました。" />
-          </p>
+          </SmoothBox>
           <div className={`meta-table anim-up d5 ${isVis(4) ? '' : 'opacity-0'}`}
             style={{ marginTop: 36, maxWidth: 440, borderTop: '1px solid rgba(255,255,255,0.12)' }}>
             {([
@@ -473,8 +574,7 @@ export default function Portfolio() {
         </div>
         <div className={`anim-scale d2 ${isVis(4) ? '' : 'opacity-0'}`}
           style={{ width: '40%', background: '#0d1117', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
-          <Image src="/images/lumi.jpg"
-            alt="Lumi" fill sizes="40vw" style={imgStyle(4, 28, { opacity: 0.75 })} />
+          <CycleFill srcs={IMGS.lumi} alt="Lumi" sizes="40vw" style={imgStyle(4, 28, { opacity: 0.75 })} />
         </div>
       </section>
 
@@ -483,22 +583,23 @@ export default function Portfolio() {
         onMouseEnter={() => setHoveredSection(5)} onMouseLeave={() => setHoveredSection(null)}>
         <div className={`anim-scale d1 ${isVis(5) ? '' : 'opacity-0'}`}
           style={{ width: '50%', background: '#A8E6CF', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
-          <Image src="/images/nectar.jpg"
-            alt="Nectar" fill sizes="50vw" style={imgStyle(5, 28)} />
+          <CycleFill srcs={IMGS.nectar} alt="Nectar" sizes="50vw" style={imgStyle(5, 28)} />
         </div>
         <div style={{ flex: 1, padding: '80px 70px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div className={`anim-left d1 ${isVis(5) ? '' : 'opacity-0'}`} style={{ marginBottom: 20 }}><DotGrid cols={6} rows={2} /></div>
           <span className="badge" style={{ color: '#4ECDC4', marginBottom: 20, alignSelf: 'flex-start' }}>
             <SlotText text="パッケージデザイン" active={isAct(5)} />
           </span>
-          <h2 className="font-elegant" style={{ fontSize: 52, fontWeight: 300, lineHeight: 1.1, color: '#1A1A2E', marginBottom: 24 }}>
-            <SlotText text="Nectar" active={isAct(5)} /><br />
-            <em><SlotText text="Artisan Honey" active={isAct(5)} delay={0.2} /></em>
-          </h2>
-          <p style={{ fontSize: 13.5, lineHeight: 1.85, color: '#777', maxWidth: 380 }}>
+          <SmoothBox style={{ marginBottom: 24 }}>
+            <h2 className="font-elegant" style={{ fontSize: 52, fontWeight: 300, lineHeight: 1.1, color: '#1A1A2E' }}>
+              <SlotText text="Nectar" active={isAct(5)} /><br />
+              <em><SlotText text="Artisan Honey" active={isAct(5)} delay={0.2} /></em>
+            </h2>
+          </SmoothBox>
+          <SmoothBox innerStyle={{ fontSize: 13.5, lineHeight: 1.85, color: '#777', maxWidth: 380 }}>
             <SlotText speed="fast" active={isAct(5)} delay={0.2}
               text="北海道の家族経営の養蜂場のパッケージとビジュアルアイデンティティ。伝統的な日本の美学を現代感覚で昇華させ、専門食品棚でも輝く、温かく手作り感あふれるデザインに仕上げました。" />
-          </p>
+          </SmoothBox>
           <div className={`meta-table anim-left d5 ${isVis(5) ? '' : 'opacity-0'}`} style={{ marginTop: 32, maxWidth: 380 }}>
             <MetaRow label="プロジェクト名" value="Nectar Honey"        active={isAct(5)} rowDelay={0.3} />
             <MetaRow label="クライアント"   value="山本 恵子"           active={isAct(5)} rowDelay={0.4} />
@@ -516,14 +617,16 @@ export default function Portfolio() {
           <span className="badge" style={{ color: '#FF6B6B', marginBottom: 20, alignSelf: 'flex-start' }}>
             <SlotText text="データビジュアライゼーション" active={isAct(6)} />
           </span>
-          <h2 className="font-elegant" style={{ fontSize: 52, fontWeight: 300, lineHeight: 1.1, color: '#1A1A2E', marginBottom: 24 }}>
-            <SlotText text="Pulse" active={isAct(6)} /><br />
-            <em><SlotText text="Dashboard" active={isAct(6)} delay={0.2} /></em>
-          </h2>
-          <p style={{ fontSize: 13.5, lineHeight: 1.85, color: '#777', maxWidth: 380 }}>
+          <SmoothBox style={{ marginBottom: 24 }}>
+            <h2 className="font-elegant" style={{ fontSize: 52, fontWeight: 300, lineHeight: 1.1, color: '#1A1A2E' }}>
+              <SlotText text="Pulse" active={isAct(6)} /><br />
+              <em><SlotText text="Dashboard" active={isAct(6)} delay={0.2} /></em>
+            </h2>
+          </SmoothBox>
+          <SmoothBox innerStyle={{ fontSize: 13.5, lineHeight: 1.85, color: '#777', maxWidth: 380 }}>
             <SlotText speed="fast" active={isAct(6)} delay={0.2}
               text="患者の健康指標を追跡するヘルステックスタートアップ向けのデータリッチな分析ダッシュボード。密度の高い医療データを、患者にも医師にも直感的で温かみのある形で提供することに挑戦しました。" />
-          </p>
+          </SmoothBox>
           <div className={`meta-table anim-right d5 ${isVis(6) ? '' : 'opacity-0'}`} style={{ marginTop: 32, maxWidth: 380 }}>
             <MetaRow label="プロジェクト名" value="Pulse Dashboard"      active={isAct(6)} rowDelay={0.3} />
             <MetaRow label="クライアント"   value="Dr. アレックス リベラ" active={isAct(6)} rowDelay={0.4} />
@@ -533,8 +636,7 @@ export default function Portfolio() {
         </div>
         <div className={`anim-scale d1 ${isVis(6) ? '' : 'opacity-0'}`}
           style={{ width: '50%', background: '#FFD166', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
-          <Image src="/images/pulse.jpg"
-            alt="Pulse" fill sizes="50vw" style={imgStyle(6, 28)} />
+          <CycleFill srcs={IMGS.pulse} alt="Pulse" sizes="50vw" style={imgStyle(6, 28)} />
         </div>
       </section>
 
@@ -555,13 +657,13 @@ export default function Portfolio() {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, flex: 1 }}>
           {([
-            ['/images/wave.jpg', 'Wave Motion',     'モーションデザイン',       '#FFADB5', 0.1],
-            ['/images/clockwork.jpg', 'Clockwork Brand', 'アイデンティティデザイン', '#C8B8E8', 0.2],
-            ['/images/sweet.jpg', 'Sweet Studio',    'ECコマース',               '#A8E6CF', 0.3],
-          ] as [string, string, string, string, number][]).map(([src, title, cat, color, d]) => (
+            [IMGS.wave,      'Wave Motion',     'モーションデザイン',       '#FFADB5', 0.1],
+            [IMGS.clockwork, 'Clockwork Brand', 'アイデンティティデザイン', '#C8B8E8', 0.2],
+            [IMGS.sweet,     'Sweet Studio',    'ECコマース',               '#A8E6CF', 0.3],
+          ] as [string[], string, string, string, number][]).map(([srcs, title, cat, color, d]) => (
             <div key={title} style={{ display: 'flex', flexDirection: 'column', gap: 12, cursor: 'none' }}>
               <div style={{ flex: 1, borderRadius: 8, background: color, minHeight: 0, position: 'relative', overflow: 'hidden' }}>
-                <Image src={src} alt={title} fill sizes="33vw"
+                <CycleFill srcs={srcs} alt={title} sizes="33vw"
                   style={imgStyle(7, 20, { borderRadius: 8 })} />
               </div>
               <div>
@@ -587,10 +689,12 @@ export default function Portfolio() {
           <p style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#4ECDC4', fontWeight: 600, marginBottom: 16 }}>
             <SlotText text="一緒につくろう" active={isAct(8)} delay={0.05} />
           </p>
-          <h2 className="font-display" style={{ fontSize: 'clamp(64px, 8vw, 110px)', color: '#1A1A2E', lineHeight: 0.92, marginBottom: 40 }}>
-            <SlotText text="CONTACT" active={isAct(8)} delay={0.1} /><br />
-            <SlotText text="US"      active={isAct(8)} delay={0.35} />
-          </h2>
+          <SmoothBox style={{ marginBottom: 40 }}>
+            <h2 className="font-display" style={{ fontSize: 'clamp(64px, 8vw, 110px)', color: '#1A1A2E', lineHeight: 0.92 }}>
+              <SlotText text="CONTACT" active={isAct(8)} delay={0.1} /><br />
+              <SlotText text="US"      active={isAct(8)} delay={0.35} />
+            </h2>
+          </SmoothBox>
 
           <div className={`anim-up d3 ${isVis(8) ? '' : 'opacity-0'}`} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             {([
@@ -617,13 +721,11 @@ export default function Portfolio() {
         <div style={{ width: '42%', display: 'grid', gridTemplateRows: '1fr 1fr', height: '100%' }}>
           <div className={`anim-scale d3 ${isVis(8) ? '' : 'opacity-0'}`}
             onMouseEnter={hOn} onMouseLeave={hOff} style={{ background: '#FFD166', position: 'relative', overflow: 'hidden' }}>
-            <Image src="/images/contact1.jpg"
-              alt="クリエイティブワークスペース" fill sizes="42vw" style={imgStyle(8, 20)} />
+            <CycleFill srcs={IMGS.contact1} alt="クリエイティブワークスペース" sizes="42vw" style={imgStyle(8, 20)} />
           </div>
           <div className={`anim-scale d5 ${isVis(8) ? '' : 'opacity-0'}`}
             onMouseEnter={hOn} onMouseLeave={hOff} style={{ background: '#FFADB5', position: 'relative', overflow: 'hidden' }}>
-            <Image src="/images/contact2.jpg"
-              alt="デザインプロセス" fill sizes="42vw" style={imgStyle(8, 20)} />
+            <CycleFill srcs={IMGS.contact2} alt="デザインプロセス" sizes="42vw" style={imgStyle(8, 20)} />
           </div>
         </div>
       </section>
