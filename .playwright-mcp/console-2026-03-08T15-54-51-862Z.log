@@ -2,3 +2,2771 @@
 [  872768ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=1920&q=75:0
 [ 1045207ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=1920&q=75:0
 [ 1244459ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=1920&q=75:0
+[ 2104260ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=1920&q=75:0
+[ 2486855ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                    <Portfolio params={Promise} searchParams={Promise}>
+                      <div>
+                      <div>
+                      <nav>
+                      <section id="hero" className="fp-section" style={{...}}>
+                        <div>
+                        <div>
+                        <div>
+                        <div>
+                        <div style={{position:"...", ...}}>
+                          <AnimatedBars>
+                            <div style={{display:"flex", ...}}>
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.4996666677418612)"
+-                                 transform: "scaleY(0.554406)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.4582276116229884)"
+-                                 transform: "scaleY(0.630621)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.6090183316852852)"
+-                                 transform: "scaleY(0.213427)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.5667122523886685)"
+-                                 transform: "scaleY(0.50964)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.40722724342819705)"
+-                                 transform: "scaleY(0.233289)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.27438641206484493)"
+-                                 transform: "scaleY(0.485681)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.4554641974612082)"
+-                                 transform: "scaleY(0.534458)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.5902912128899265)"
+-                                 transform: "scaleY(0.35556)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.7040889527342422)"
+-                                 transform: "scaleY(0.515151)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.38032427850132233)"
+-                                 transform: "scaleY(0.605752)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                        <div style={{position:"...", ...}}>
+                          <p style={{...}}>
+                            <SlotText text="クリエイティブデザイナー" active={false}>
++                             BNナ3JZツYFケH0
+-                             ア85SRNキMARFE
+                          ...
+                        ...
+                      ...
+                ...
+              ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7032:36)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 2489904ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=1920&q=75:0
+[ 2500272ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=1920&q=75:0
+[ 2500359ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                    <Portfolio params={Promise} searchParams={Promise}>
+                      <div>
+                      <div>
+                      <nav>
+                      <section id="hero" className="fp-section" style={{...}}>
+                        <div>
+                        <div>
+                        <div>
+                        <div>
+                        <div style={{position:"...", ...}}>
+                          <AnimatedBars>
+                            <div style={{display:"flex", ...}}>
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.6937722221929421)"
+-                                 transform: "scaleY(0.425052)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.4189077039032978)"
+-                                 transform: "scaleY(0.429266)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.760710154239562)"
+-                                 transform: "scaleY(0.308669)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.4889284741762281)"
+-                                 transform: "scaleY(0.720896)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.6135422629858528)"
+-                                 transform: "scaleY(0.785323)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.6317908487506487)"
+-                                 transform: "scaleY(0.789654)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.523101226271725)"
+-                                 transform: "scaleY(0.527772)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.7802693771338856)"
+-                                 transform: "scaleY(0.522034)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.6525202294089345)"
+-                                 transform: "scaleY(0.549781)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.5944449874195985)"
+-                                 transform: "scaleY(0.456666)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                        <div style={{position:"...", ...}}>
+                          <p style={{...}}>
+                            <SlotText text="クリエイティブデザイナー" active={false}>
++                             3IJニ7シN1MALツ
+-                             ネアトス35ツAニ37V
+                          ...
+                        ...
+                      ...
+                ...
+              ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7032:36)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 2500335ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=1920&q=75:0
+[ 2804288ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=1920&q=75:0
+[ 2816180ms] ReferenceError: blobPx is not defined
+    at Portfolio (http://localhost:3002/_next/static/chunks/app_page_tsx_dda9881a._.js?id=%255Bproject%255D%252Fapp%252Fpage.tsx+%255Bapp-client%255D+%2528ecmascript%2529:441:32)
+    at Object.react_stack_bottom_frame (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6708:24)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performSyncWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10238:9)
+    at flushSyncWorkAcrossRoots_impl (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10154:316)
+    at flushSyncWork$1 (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9237:86)
+    at Object.scheduleRefresh (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:299:13)
+    at http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:384:38)
+    at applyUpdate (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:878:31)
+    at http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:886:13
+[ 2841896ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 2841947ms] ReferenceError: blobPx is not defined
+    at Portfolio (http://localhost:3002/_next/static/chunks/app_page_tsx_dda9881a._.js?id=%255Bproject%255D%252Fapp%252Fpage.tsx+%255Bapp-client%255D+%2528ecmascript%2529:662:32)
+    at Object.react_stack_bottom_frame (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6708:24)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performSyncWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10238:9)
+    at flushSyncWorkAcrossRoots_impl (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10154:316)
+    at flushSyncWork$1 (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9237:86)
+    at Object.scheduleRefresh (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:299:13)
+    at http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:384:38)
+    at applyUpdate (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:878:31)
+    at http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:886:13
+[ 2842045ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3002/:0
+[ 2842227ms] ReferenceError: blobPx is not defined
+    at Portfolio (http://localhost:3002/_next/static/chunks/app_page_tsx_dda9881a._.js:663:32)
+    at Object.react_stack_bottom_frame (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6708:24)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 2845231ms] [WARNING] The resource http://localhost:3002/_next/static/chunks/app_globals_71f961d1.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3002/:0
+[ 2855482ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 2855896ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                    <Portfolio params={Promise} searchParams={Promise}>
+                      <div>
+                      <div>
+                      <nav>
+                      <section id="hero" className="fp-section" style={{...}}>
+                        <div>
+                        <div>
+                        <div>
+                        <div>
+                        <div style={{position:"...", ...}}>
+                          <AnimatedBars>
+                            <div style={{display:"flex", ...}}>
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.3733229000074229)"
+-                                 transform: "scaleY(0.680739)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.7063401707070789)"
+-                                 transform: "scaleY(0.557815)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.7988520409665425)"
+-                                 transform: "scaleY(0.790693)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.23169427645963292)"
+-                                 transform: "scaleY(0.635072)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.5599217171206872)"
+-                                 transform: "scaleY(0.425167)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.6560687002707717)"
+-                                 transform: "scaleY(0.654007)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.3260781949673188)"
+-                                 transform: "scaleY(0.33934)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.7373351155096668)"
+-                                 transform: "scaleY(0.509161)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.4487613015401706)"
+-                                 transform: "scaleY(0.606528)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.7024193547257986)"
+-                                 transform: "scaleY(0.475834)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                        <div style={{position:"...", ...}}>
+                          <p style={{...}}>
+                            <SlotText text="クリエイティブデザイナー" active={false}>
++                             5P97ネSBサオ36ソ
+-                             XYWサコナツアトヌDU
+                          ...
+                        ...
+                      ...
+                ...
+              ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7032:36)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 2855858ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=1920&q=75:0
+[ 2863730ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=1200&q=75:0
+[ 3074060ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                    <Portfolio params={Promise} searchParams={Promise}>
+                      <div>
+                      <div>
+                      <nav>
+                      <section id="hero" className="fp-section" style={{...}}>
+                        <div>
+                        <div>
+                        <div>
+                        <div>
+                        <div style={{position:"...", ...}}>
+                          <AnimatedBars>
+                            <div style={{display:"flex", ...}}>
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.4829608331021221)"
+-                                 transform: "scaleY(0.284749)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.3611060439910366)"
+-                                 transform: "scaleY(0.246928)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.4400917825019079)"
+-                                 transform: "scaleY(0.767677)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.6518726560010839)"
+-                                 transform: "scaleY(0.424773)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.27159572137208043)"
+-                                 transform: "scaleY(0.32152)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.3211525687706052)"
+-                                 transform: "scaleY(0.670771)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.22055093470291015)"
+-                                 transform: "scaleY(0.645463)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.5970128656946548)"
+-                                 transform: "scaleY(0.697719)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.63192469846492)"
+-                                 transform: "scaleY(0.25086)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.5732719824743506)"
+-                                 transform: "scaleY(0.336924)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                        <div style={{position:"...", ...}}>
+                          <p style={{...}}>
+                            <SlotText text="クリエイティブデザイナー" active={false}>
++                             M8OケZタ8テTL1P
+-                             ネOニ9BOPQMCヌソ
+                          ...
+                        ...
+                      ...
+                ...
+              ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7032:36)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 3074003ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=1200&q=75:0
+[ 3108155ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=750&q=75:0
+[ 3113035ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=1200&q=75:0
+[ 3531424ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                    <Portfolio params={Promise} searchParams={Promise}>
+                      <div>
+                      <div>
+                      <nav>
+                      <section id="hero" className="fp-section" style={{...}}>
+                        <div>
+                        <div>
+                        <div>
+                        <div>
+                        <div style={{position:"...", ...}}>
+                          <AnimatedBars>
+                            <div style={{display:"flex", ...}}>
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.36976569256522807)"
+-                                 transform: "scaleY(0.537548)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.6584181016584558)"
+-                                 transform: "scaleY(0.786126)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.2446265466318763)"
+-                                 transform: "scaleY(0.707779)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.5324072181139389)"
+-                                 transform: "scaleY(0.341412)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.450978405854861)"
+-                                 transform: "scaleY(0.275352)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.4085016598325667)"
+-                                 transform: "scaleY(0.724073)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.7733408471340333)"
+-                                 transform: "scaleY(0.272755)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.26031579913453345)"
+-                                 transform: "scaleY(0.208382)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.6833295880884709)"
+-                                 transform: "scaleY(0.480421)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.6421611570559299)"
+-                                 transform: "scaleY(0.286829)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                        <div style={{position:"...", ...}}>
+                          <p style={{...}}>
+                            <SlotText text="クリエイティブデザイナー" active={false}>
++                             R00ISHOネケサJイ
+-                             3KスKRケ3イ4キOエ
+                          ...
+                        ...
+                      ...
+                ...
+              ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7032:36)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 3531760ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=1200&q=75:0
+[ 3533668ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=1200&q=75:0
+[ 3533775ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                    <Portfolio params={Promise} searchParams={Promise}>
+                      <div>
+                      <div>
+                      <nav>
+                      <section id="hero" className="fp-section" style={{...}}>
+                        <div>
+                        <div>
+                        <div>
+                        <div>
+                        <div style={{position:"...", ...}}>
+                          <AnimatedBars>
+                            <div style={{display:"flex", ...}}>
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.3504528020900527)"
+-                                 transform: "scaleY(0.704783)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.5554881950092337)"
+-                                 transform: "scaleY(0.52789)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.4224370932242485)"
+-                                 transform: "scaleY(0.601043)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.3488905287451998)"
+-                                 transform: "scaleY(0.250302)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.29417180235930374)"
+-                                 transform: "scaleY(0.307507)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.7855662863751922)"
+-                                 transform: "scaleY(0.431313)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.6042242155453776)"
+-                                 transform: "scaleY(0.754229)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.5105837693751654)"
+-                                 transform: "scaleY(0.776886)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.36176914339662236)"
+-                                 transform: "scaleY(0.741513)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.30975960875224884)"
+-                                 transform: "scaleY(0.359655)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                        <div style={{position:"...", ...}}>
+                          <p style={{...}}>
+                            <SlotText text="クリエイティブデザイナー" active={false}>
++                             JテウSDツU0WSNY
+-                             ク157X8ウQノセウカ
+                          ...
+                        ...
+                      ...
+                ...
+              ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7032:36)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 3533745ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=1200&q=75:0
+[ 3629611ms] Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="page.tsx">
+                  <SegmentTrieNode>
+                  <ClientPageRoot Component={function Portfolio} serverProvidedParams={{...}}>
+                    <Portfolio params={Promise} searchParams={Promise}>
+                      <div>
+                      <div>
+                      <nav>
+                      <section id="hero" className="fp-section" style={{...}}>
+                        <div>
+                        <div>
+                        <div>
+                        <div>
+                        <div style={{position:"...", ...}}>
+                          <AnimatedBars>
+                            <div style={{display:"flex", ...}}>
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.7179407494625396)"
+-                                 transform: "scaleY(0.614755)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.5331712068181815)"
+-                                 transform: "scaleY(0.463537)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.48633146928731874)"
+-                                 transform: "scaleY(0.224009)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.5885125559986581)"
+-                                 transform: "scaleY(0.711201)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.7683519210104168)"
+-                                 transform: "scaleY(0.502913)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.3559353335406192)"
+-                                 transform: "scaleY(0.532903)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.3900324180013741)"
+-                                 transform: "scaleY(0.485568)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.6618123567130604)"
+-                                 transform: "scaleY(0.230321)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.5549762850150755)"
+-                                 transform: "scaleY(0.39289)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                              <div
+                                style={{
++                                 width: 3
+-                                 width: "3px"
++                                 height: 28
+-                                 height: "28px"
++                                 background: "rgba(255,255,255,0.6)"
++                                 borderRadius: 2
++                                 transform: "scaleY(0.3744811632009215)"
+-                                 transform: "scaleY(0.327077)"
++                                 transformOrigin: "center"
++                                 transition: "transform 0.12s ease"
+-                                 background-image: "initial"
+-                                 background-position-x: "initial"
+-                                 background-position-y: "initial"
+-                                 background-size: "initial"
+-                                 background-repeat: "initial"
+-                                 background-attachment: "initial"
+-                                 background-origin: "initial"
+-                                 background-clip: "initial"
+-                                 background-color: "rgba(255, 255, 255, 0.6)"
+-                                 border-top-left-radius: "2px"
+-                                 border-top-right-radius: "2px"
+-                                 border-bottom-right-radius: "2px"
+-                                 border-bottom-left-radius: "2px"
+-                                 transform-origin: "center center"
+-                                 transition-behavior: "normal"
+-                                 transition-duration: "0.12s"
+-                                 transition-timing-function: "ease"
+-                                 transition-delay: "0s"
+-                                 transition-property: "transform"
+                                }}
+                              >
+                        <div style={{position:"...", ...}}>
+                          <p style={{...}}>
+                            <SlotText text="クリエイティブデザイナー" active={false}>
++                             ソエ7GOJノイJヌスサ
+-                             タMVイKカツ4ノHOコ
+                          ...
+                        ...
+                      ...
+                ...
+              ...
+
+    at throwOnHydrationMismatch (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:3348:56)
+    at completeWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7032:36)
+    at runWithFiberInDEV (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at completeUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9627:23)
+    at performUnitOfWork (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9564:28)
+    at workLoopConcurrentByScheduler (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9558:58)
+    at renderRootConcurrent (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9541:71)
+    at performWorkOnRoot (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9068:150)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 3629567ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3002/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1519710164239-da21be2b6a4b%3Fw%3D800%26h%3D900%26fit%3Dcrop%26auto%3Dformat%26q%3D80&w=1200&q=75:0
+[ 4071509ms] [WARNING] Image with src "/images/bloom.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3002/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
