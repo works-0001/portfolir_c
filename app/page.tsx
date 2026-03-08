@@ -28,28 +28,103 @@ function MetaRow({ label, value }: { label: string; value: string }) {
   )
 }
 
+// ─── Animated Sound Bars ─────────────────────────────────────────────────────
+
+function AnimatedBars({ color = 'rgba(255,255,255,0.6)' }: { color?: string }) {
+  const BASE = [18, 28, 14, 22, 10, 26, 16, 20, 12, 24]
+  const [heights, setHeights] = useState(BASE)
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setHeights(BASE.map(() => Math.floor(Math.random() * 24) + 6))
+    }, 130)
+    return () => clearInterval(id)
+  }, [])
+
+  return (
+    <div style={{ display: 'flex', gap: 3, alignItems: 'flex-end' }}>
+      {heights.map((h, i) => (
+        <div key={i} style={{ width: 3, height: h, background: color, borderRadius: 1, transition: 'height 0.12s ease' }} />
+      ))}
+    </div>
+  )
+}
+
+// ─── Slot Machine Text ────────────────────────────────────────────────────────
+
+const SLOT_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZアイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789'
+
+function SlotText({ text, trigger, delay = 0 }: { text: string; trigger: boolean; delay?: number }) {
+  const [chars, setChars] = useState<string[]>(text.split('').map(() => '\u00A0'))
+  const didRun = useRef(false)
+
+  useEffect(() => {
+    if (!trigger || didRun.current) return
+    didRun.current = true
+    const timeouts: ReturnType<typeof setTimeout>[] = []
+
+    text.split('').forEach((target, i) => {
+      if (target === ' ' || target === '\n') {
+        setChars(prev => { const n = [...prev]; n[i] = target; return n })
+        return
+      }
+      const cycles = 6 + Math.floor(Math.random() * 6)
+      const startMs = delay * 1000 + i * 55
+
+      for (let c = 0; c < cycles; c++) {
+        const t = setTimeout(() => {
+          setChars(prev => {
+            const n = [...prev]
+            n[i] = SLOT_CHARS[Math.floor(Math.random() * SLOT_CHARS.length)]
+            return n
+          })
+        }, startMs + c * 45)
+        timeouts.push(t)
+      }
+      const t = setTimeout(() => {
+        setChars(prev => { const n = [...prev]; n[i] = target; return n })
+      }, startMs + cycles * 45)
+      timeouts.push(t)
+    })
+
+    return () => timeouts.forEach(clearTimeout)
+  }, [trigger])
+
+  return <>{chars.join('')}</>
+}
+
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function Portfolio() {
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 })
   const [ringPos, setRingPos] = useState({ x: -100, y: -100 })
+  const [mouse, setMouse] = useState({ x: 0, y: 0 }) // -1 to 1 normalized
   const [hovering, setHovering] = useState(false)
   const [activeSection, setActiveSection] = useState(0)
   const [visibleSections, setVisibleSections] = useState<Set<number>>(new Set([0]))
 
   const ringTarget = useRef({ x: -100, y: -100 })
+  const mouseRaw = useRef({ x: 0, y: 0 })
   const rafRef = useRef<number | null>(null)
 
-  // Cursor
+  // Cursor + mouse parallax
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
       setCursorPos({ x: e.clientX, y: e.clientY })
       ringTarget.current = { x: e.clientX, y: e.clientY }
+      mouseRaw.current = {
+        x: (e.clientX / window.innerWidth - 0.5) * 2,
+        y: (e.clientY / window.innerHeight - 0.5) * 2,
+      }
     }
     const loop = () => {
       setRingPos(prev => ({
         x: prev.x + (ringTarget.current.x - prev.x) * 0.12,
         y: prev.y + (ringTarget.current.y - prev.y) * 0.12,
+      }))
+      setMouse(prev => ({
+        x: prev.x + (mouseRaw.current.x - prev.x) * 0.08,
+        y: prev.y + (mouseRaw.current.y - prev.y) * 0.08,
       }))
       rafRef.current = requestAnimationFrame(loop)
     }
@@ -83,13 +158,19 @@ export default function Portfolio() {
   }, [])
 
   const isVisible = (i: number) => visibleSections.has(i)
-
-  const scrollTo = (i: number) => {
-    document.getElementById(SECTION_IDS[i])?.scrollIntoView({ behavior: 'smooth' })
-  }
-
+  const scrollTo = (i: number) => document.getElementById(SECTION_IDS[i])?.scrollIntoView({ behavior: 'smooth' })
   const hoverOn = () => setHovering(true)
   const hoverOff = () => setHovering(false)
+
+  // Parallax helpers
+  const blobPx = (sx: number, sy = sx) => ({
+    transform: `translate(${mouse.x * sx}px, ${mouse.y * sy}px)`,
+    transition: 'transform 0.05s linear',
+  })
+  const imgPx = (s: number) => ({
+    transform: `translate(${-mouse.x * s}px, ${-mouse.y * s}px) scale(1.08)`,
+    transition: 'transform 0.1s linear',
+  })
 
   // ─── Render ───────────────────────────────────────────────────────────────
 
@@ -102,7 +183,7 @@ export default function Portfolio() {
       {/* Side nav dots */}
       <nav className="nav-dots">
         {SECTION_IDS.map((_, i) => (
-          <button key={i} className={`nav-dot ${activeSection === i ? 'active' : ''}`} onClick={() => scrollTo(i)} aria-label={`Section ${i + 1}`} />
+          <button key={i} className={`nav-dot ${activeSection === i ? 'active' : ''}`} onClick={() => scrollTo(i)} aria-label={`セクション ${i + 1}`} />
         ))}
       </nav>
 
@@ -112,22 +193,20 @@ export default function Portfolio() {
       <section id="hero" className="fp-section" style={{ background: '#4ECDC4' }}>
         <div className="noise" />
 
-        {/* Floating color blocks */}
-        <div style={{ position: 'absolute', top: '8%', right: '12%', width: 200, height: 200, background: '#FFD166', borderRadius: '50%', opacity: 0.6, filter: 'blur(40px)' }} />
-        <div style={{ position: 'absolute', bottom: '15%', left: '8%', width: 140, height: 140, background: '#FF6B6B', borderRadius: '50%', opacity: 0.5, filter: 'blur(30px)' }} />
-        <div style={{ position: 'absolute', top: '30%', left: '20%', width: 80, height: 80, background: '#FFADB5', borderRadius: '50%', opacity: 0.6, filter: 'blur(20px)' }} />
+        {/* Floating blobs with mouse parallax */}
+        <div style={{ position: 'absolute', top: '8%', right: '12%', width: 200, height: 200, background: '#FFD166', borderRadius: '50%', opacity: 0.6, filter: 'blur(40px)', ...blobPx(-18, -14) }} />
+        <div style={{ position: 'absolute', bottom: '15%', left: '8%', width: 140, height: 140, background: '#FF6B6B', borderRadius: '50%', opacity: 0.5, filter: 'blur(30px)', ...blobPx(22, 16) }} />
+        <div style={{ position: 'absolute', top: '30%', left: '20%', width: 80, height: 80, background: '#FFADB5', borderRadius: '50%', opacity: 0.6, filter: 'blur(20px)', ...blobPx(-10, 20) }} />
 
-        {/* Barcode-style decoration (top-left) */}
-        <div style={{ position: 'absolute', top: 40, left: 48, display: 'flex', gap: 3, alignItems: 'flex-end' }}>
-          {[18, 28, 14, 22, 10, 26, 16, 20, 12, 24].map((h, i) => (
-            <div key={i} style={{ width: 3, height: h, background: 'rgba(255,255,255,0.6)', borderRadius: 1 }} />
-          ))}
+        {/* Animated sound bars top-left */}
+        <div style={{ position: 'absolute', top: 40, left: 48 }}>
+          <AnimatedBars />
         </div>
 
         {/* Name top right */}
         <div style={{ position: 'absolute', top: 36, right: 60 }}>
           <p style={{ fontFamily: 'DM Sans', fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', textAlign: 'right' }}>
-            CREATIVE DESIGNER
+            クリエイティブデザイナー
           </p>
           <p style={{ fontFamily: 'DM Sans', fontSize: 11, color: 'rgba(255,255,255,0.6)', textAlign: 'right', marginTop: 2 }}>
             isabellachen.design
@@ -138,7 +217,7 @@ export default function Portfolio() {
         <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 8 }}>
           <p className={`font-elegant anim-fade d2 ${isVisible(0) ? '' : 'opacity-0'}`}
             style={{ fontSize: 18, color: 'rgba(255,255,255,0.8)', letterSpacing: '0.3em', textTransform: 'uppercase', fontStyle: 'italic' }}>
-            — Visual &amp; Brand —
+            — ビジュアル & ブランド —
           </p>
           <h1 className={`font-display anim-up d1 ${isVisible(0) ? '' : 'opacity-0'}`}
             style={{ fontSize: 'clamp(100px, 16vw, 200px)', color: 'white', lineHeight: 0.9, textAlign: 'center', textShadow: '0 4px 40px rgba(0,0,0,0.12)' }}>
@@ -150,33 +229,35 @@ export default function Portfolio() {
           </p>
         </div>
 
-        {/* Decorative image blocks */}
+        {/* Decorative image blocks with mouse parallax */}
         <div className={`img-zoom anim-scale d5 ${isVisible(0) ? '' : 'opacity-0'}`}
           onMouseEnter={hoverOn} onMouseLeave={hoverOff}
-          style={{ position: 'absolute', bottom: '10%', right: '10%', width: 180, height: 180, borderRadius: 12, boxShadow: '0 20px 60px rgba(0,0,0,0.2)' }}>
+          style={{ position: 'absolute', bottom: '10%', right: '10%', width: 180, height: 180, borderRadius: 12, boxShadow: '0 20px 60px rgba(0,0,0,0.2)', ...blobPx(10, 8) }}>
           <Image
             src="https://images.unsplash.com/photo-1490474504059-bf2db5ab2348?w=400&h=400&fit=crop&auto=format&q=80"
-            alt="colorful pineapple"
+            alt="カラフルなパイナップル"
             width={180} height={180}
             style={{ borderRadius: 12 }}
           />
         </div>
         <div className={`img-zoom anim-scale d7 ${isVisible(0) ? '' : 'opacity-0'}`}
           onMouseEnter={hoverOn} onMouseLeave={hoverOff}
-          style={{ position: 'absolute', bottom: '22%', left: '6%', width: 130, height: 130, borderRadius: 10, boxShadow: '0 16px 48px rgba(0,0,0,0.18)' }}>
+          style={{ position: 'absolute', bottom: '22%', left: '6%', width: 130, height: 130, borderRadius: 10, boxShadow: '0 16px 48px rgba(0,0,0,0.18)', ...blobPx(-12, 10) }}>
           <Image
             src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=300&h=300&fit=crop&auto=format&q=80"
-            alt="warm coffee"
+            alt="温かいコーヒー"
             width={130} height={130}
             style={{ borderRadius: 10 }}
           />
         </div>
 
-        {/* Scroll hint */}
+        {/* Animated scroll hint */}
         <div className={`anim-fade d8 ${isVisible(0) ? '' : 'opacity-0'}`}
           style={{ position: 'absolute', bottom: 32, left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
-          <p style={{ fontSize: 10, letterSpacing: '0.2em', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase' }}>Scroll</p>
-          <div style={{ width: 1, height: 40, background: 'rgba(255,255,255,0.4)' }} />
+          <p style={{ fontSize: 10, letterSpacing: '0.2em', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase' }}>スクロール</p>
+          <div style={{ width: 1, height: 40, background: 'rgba(255,255,255,0.15)', position: 'relative', overflow: 'hidden' }}>
+            <div className="scroll-line-fill" />
+          </div>
         </div>
       </section>
 
@@ -196,11 +277,11 @@ export default function Portfolio() {
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=480&h=480&fit=crop&crop=face&auto=format&q=85"
                 alt="Isabella Chen"
                 width={240} height={240}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', ...imgPx(6) }}
               />
             </div>
             <p style={{ textAlign: 'center', marginTop: 20, fontFamily: 'DM Sans', fontWeight: 600, fontSize: 18, color: '#1A1A2E' }}>Isabella Chen</p>
-            <p style={{ textAlign: 'center', fontSize: 12, color: '#999', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: 4 }}>Creative Director</p>
+            <p style={{ textAlign: 'center', fontSize: 12, color: '#999', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: 4 }}>クリエイティブディレクター</p>
           </div>
         </div>
 
@@ -211,26 +292,27 @@ export default function Portfolio() {
           </div>
           <p className={`anim-right d2 ${isVisible(1) ? '' : 'opacity-0'}`}
             style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#4ECDC4', fontWeight: 600, marginTop: 24, marginBottom: 12 }}>
-            About Me
+            自己紹介
           </p>
           <h2 className={`font-elegant anim-right d3 ${isVisible(1) ? '' : 'opacity-0'}`}
             style={{ fontSize: 48, fontWeight: 300, lineHeight: 1.15, color: '#1A1A2E', marginBottom: 28 }}>
-            Crafting brands<br />
-            <em>that people remember.</em>
+            <SlotText text="記憶に残るブランドを" trigger={isVisible(1)} />
+            <br />
+            <em><SlotText text="つくる。" trigger={isVisible(1)} delay={0.3} /></em>
           </h2>
           <p className={`anim-right d4 ${isVisible(1) ? '' : 'opacity-0'}`}
             style={{ fontSize: 14, lineHeight: 1.9, color: '#666', maxWidth: 480, marginBottom: 20 }}>
-            I'm a Tokyo-based creative director specialising in brand identity, packaging, and digital experiences. With over 8 years in the field, I believe the best design is both beautiful and effortlessly functional.
+            東京を拠点にするクリエイティブディレクターとして、ブランドアイデンティティ、パッケージング、デジタル体験を専門にしています。8年以上の経験を通じて、美しく機能的なデザインを追求し続けています。
           </p>
           <p className={`anim-right d5 ${isVisible(1) ? '' : 'opacity-0'}`}
             style={{ fontSize: 14, lineHeight: 1.9, color: '#666', maxWidth: 480 }}>
-            Each project is a collaboration — I work closely with founders, marketers, and makers to translate their vision into a cohesive visual language that resonates.
+            すべてのプロジェクトはコラボレーション。創業者、マーケター、クリエイターと緊密に連携し、ビジョンを一貫したビジュアル言語へと昇華させます。
           </p>
 
           {/* Stats */}
           <div className={`anim-right d6 ${isVisible(1) ? '' : 'opacity-0'}`}
             style={{ display: 'flex', gap: 48, marginTop: 40, paddingTop: 32, borderTop: '1px solid rgba(0,0,0,0.08)' }}>
-            {[['8+', 'Years Experience'], ['120+', 'Projects Done'], ['40+', 'Happy Clients']].map(([num, label]) => (
+            {[['8年+', '経験年数'], ['120+', 'プロジェクト'], ['40+', 'クライアント']].map(([num, label]) => (
               <div key={num}>
                 <p className="font-display" style={{ fontSize: 42, color: '#4ECDC4', lineHeight: 1 }}>{num}</p>
                 <p style={{ fontSize: 11, color: '#999', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: 4 }}>{label}</p>
@@ -241,10 +323,10 @@ export default function Portfolio() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          SECTION 3: PROJECT — BLOOM IDENTITY (img left)
+          SECTION 3: PROJECT — BLOOM IDENTITY
       ═══════════════════════════════════════════════════ */}
       <section id="proj1" className="fp-section" style={{ background: '#FFFFFF', display: 'flex' }}>
-        {/* Image */}
+        {/* Image with parallax */}
         <div className={`img-zoom anim-scale d1 ${isVisible(2) ? '' : 'opacity-0'}`}
           onMouseEnter={hoverOn} onMouseLeave={hoverOff}
           style={{ width: '50%', height: '100%', background: '#FFADB5' }}>
@@ -252,7 +334,7 @@ export default function Portfolio() {
             src="https://images.unsplash.com/photo-1519710164239-da21be2b6a4b?w=800&h=900&fit=crop&auto=format&q=80"
             alt="Bloom Brand Identity"
             width={800} height={900}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', ...imgPx(12) }}
           />
         </div>
 
@@ -263,27 +345,28 @@ export default function Portfolio() {
           </div>
           <span className={`badge anim-left d2 ${isVisible(2) ? '' : 'opacity-0'}`}
             style={{ color: '#FF6B6B', marginBottom: 20, alignSelf: 'flex-start' }}>
-            Brand Identity
+            ブランドアイデンティティ
           </span>
           <h2 className={`font-elegant anim-left d3 ${isVisible(2) ? '' : 'opacity-0'}`}
             style={{ fontSize: 52, fontWeight: 300, lineHeight: 1.1, color: '#1A1A2E', marginBottom: 24 }}>
-            Bloom<br /><em>Botanicals</em>
+            <SlotText text="Bloom" trigger={isVisible(2)} /><br />
+            <em><SlotText text="Botanicals" trigger={isVisible(2)} delay={0.2} /></em>
           </h2>
           <p className={`anim-left d4 ${isVisible(2) ? '' : 'opacity-0'}`}
             style={{ fontSize: 13.5, lineHeight: 1.85, color: '#777', maxWidth: 380 }}>
-            A complete visual identity for a boutique botanical skincare brand. The system draws from organic forms — petal geometry, leaf structures, and gentle gradients — to create packaging that feels like a meditation on nature.
+            ボタニカルスキンケアブランドの完全なビジュアルアイデンティティ。花弁の幾何学、葉の構造、穏やかなグラデーションから着想を得たパッケージは、自然への瞑想のような美しさを持ちます。
           </p>
           <div className={`meta-table anim-left d5 ${isVisible(2) ? '' : 'opacity-0'}`} style={{ marginTop: 32, maxWidth: 380 }}>
-            <MetaRow label="Project Name" value="Bloom Botanicals" />
-            <MetaRow label="Client" value="Sarah Nakamura" />
-            <MetaRow label="Category" value="Brand Identity / Packaging" />
-            <MetaRow label="Year" value="2024 / 03" />
+            <MetaRow label="プロジェクト名" value="Bloom Botanicals" />
+            <MetaRow label="クライアント" value="中村 サラ" />
+            <MetaRow label="カテゴリ" value="ブランド / パッケージ" />
+            <MetaRow label="年" value="2024 / 03" />
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          SECTION 4: PROJECT — TEMPO APP (text left, img right)
+          SECTION 4: PROJECT — TEMPO APP
       ═══════════════════════════════════════════════════ */}
       <section id="proj2" className="fp-section" style={{ background: '#FAFAFA', display: 'flex' }}>
         {/* Text */}
@@ -293,21 +376,22 @@ export default function Portfolio() {
           </div>
           <span className={`badge anim-right d2 ${isVisible(3) ? '' : 'opacity-0'}`}
             style={{ color: '#FFD166', marginBottom: 20, alignSelf: 'flex-start' }}>
-            UI / UX Design
+            UI / UX デザイン
           </span>
           <h2 className={`font-elegant anim-right d3 ${isVisible(3) ? '' : 'opacity-0'}`}
             style={{ fontSize: 52, fontWeight: 300, lineHeight: 1.1, color: '#1A1A2E', marginBottom: 24 }}>
-            Tempo<br /><em>Music App</em>
+            <SlotText text="Tempo" trigger={isVisible(3)} /><br />
+            <em><SlotText text="Music App" trigger={isVisible(3)} delay={0.2} /></em>
           </h2>
           <p className={`anim-right d4 ${isVisible(3) ? '' : 'opacity-0'}`}
             style={{ fontSize: 13.5, lineHeight: 1.85, color: '#777', maxWidth: 380 }}>
-            End-to-end UX design for an independent music streaming platform celebrating emerging artists. Focused on accessibility and a warm, tactile aesthetic that feels like flipping through vinyl at a record store.
+            新進アーティストを支援する独立系音楽ストリーミングプラットフォームのエンドツーエンドUXデザイン。レコード店でビニールをめくる感触のような、温かみのある触覚的な美学を追求しました。
           </p>
           <div className={`meta-table anim-right d5 ${isVisible(3) ? '' : 'opacity-0'}`} style={{ marginTop: 32, maxWidth: 380 }}>
-            <MetaRow label="Project Name" value="Tempo App" />
-            <MetaRow label="Client" value="Matthew Brooks" />
-            <MetaRow label="Category" value="UI/UX / Product Design" />
-            <MetaRow label="Year" value="2024 / 06" />
+            <MetaRow label="プロジェクト名" value="Tempo App" />
+            <MetaRow label="クライアント" value="マシュー ブルックス" />
+            <MetaRow label="カテゴリ" value="UI/UX / プロダクトデザイン" />
+            <MetaRow label="年" value="2024 / 06" />
           </div>
         </div>
 
@@ -319,13 +403,13 @@ export default function Portfolio() {
             src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?w=800&h=900&fit=crop&auto=format&q=80"
             alt="Tempo Music App"
             width={800} height={900}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', ...imgPx(12) }}
           />
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          SECTION 5: PROJECT — LUMI ARCHITECTURE (full-text + side image)
+          SECTION 5: PROJECT — LUMI ARCHITECTURE
       ═══════════════════════════════════════════════════ */}
       <section id="proj3" className="fp-section" style={{ background: '#1A1A2E', display: 'flex' }}>
         {/* Text */}
@@ -335,32 +419,33 @@ export default function Portfolio() {
           </div>
           <span className={`badge anim-up d1 ${isVisible(4) ? '' : 'opacity-0'}`}
             style={{ color: '#95E1D3', marginBottom: 24, alignSelf: 'flex-start' }}>
-            Web Design
+            ウェブデザイン
           </span>
           <h2 className={`font-elegant anim-up d2 ${isVisible(4) ? '' : 'opacity-0'}`}
             style={{ fontSize: 60, fontWeight: 300, lineHeight: 1.05, color: 'white', marginBottom: 28 }}>
-            Lumi<br /><em style={{ color: '#95E1D3' }}>Architecture</em>
+            <SlotText text="Lumi" trigger={isVisible(4)} /><br />
+            <em style={{ color: '#95E1D3' }}><SlotText text="Architecture" trigger={isVisible(4)} delay={0.2} /></em>
           </h2>
           <p className={`anim-up d3 ${isVisible(4) ? '' : 'opacity-0'}`}
             style={{ fontSize: 14, lineHeight: 1.9, color: 'rgba(255,255,255,0.55)', maxWidth: 440 }}>
-            Website redesign for a modernist architecture studio based in Osaka. The brief was to translate their philosophy of "light as material" into a digital experience — sparse, luminous, and unforgettable.
+            大阪を拠点にするモダニストの建築スタジオのウェブサイトリデザイン。「光を素材として扱う」という哲学を、デジタル体験に翻訳することが使命でした。
           </p>
           <p className={`anim-up d4 ${isVisible(4) ? '' : 'opacity-0'}`}
             style={{ fontSize: 14, lineHeight: 1.9, color: 'rgba(255,255,255,0.55)', maxWidth: 440, marginTop: 16 }}>
-            We built a custom scroll-driven narrative using WebGL, with each section revealing geometry through light and shadow — echoing the studio's built work.
+            WebGLを使ったカスタムスクロールナラティブを構築し、各セクションが光と影を通じてジオメトリを現す演出を実現しました。
           </p>
           <div className={`meta-table anim-up d5 ${isVisible(4) ? '' : 'opacity-0'}`}
             style={{ marginTop: 36, maxWidth: 440, borderTop: '1px solid rgba(255,255,255,0.12)' }}>
             <div className="meta-row" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-              <span className="meta-label" style={{ color: 'rgba(255,255,255,0.3)' }}>Client</span>
-              <span className="meta-val" style={{ color: 'rgba(255,255,255,0.8)' }}>Hiroshi Tanaka</span>
+              <span className="meta-label" style={{ color: 'rgba(255,255,255,0.3)' }}>クライアント</span>
+              <span className="meta-val" style={{ color: 'rgba(255,255,255,0.8)' }}>田中 浩</span>
             </div>
             <div className="meta-row" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-              <span className="meta-label" style={{ color: 'rgba(255,255,255,0.3)' }}>Category</span>
-              <span className="meta-val" style={{ color: 'rgba(255,255,255,0.8)' }}>Web Design / Motion</span>
+              <span className="meta-label" style={{ color: 'rgba(255,255,255,0.3)' }}>カテゴリ</span>
+              <span className="meta-val" style={{ color: 'rgba(255,255,255,0.8)' }}>ウェブデザイン / モーション</span>
             </div>
             <div className="meta-row" style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-              <span className="meta-label" style={{ color: 'rgba(255,255,255,0.3)' }}>Year</span>
+              <span className="meta-label" style={{ color: 'rgba(255,255,255,0.3)' }}>年</span>
               <span className="meta-val" style={{ color: 'rgba(255,255,255,0.8)' }}>2023 / 11</span>
             </div>
           </div>
@@ -374,13 +459,13 @@ export default function Portfolio() {
             src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=700&h=900&fit=crop&auto=format&q=80"
             alt="Lumi Architecture"
             width={700} height={900}
-            style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.75 }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.75, ...imgPx(10) }}
           />
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          SECTION 6: PROJECT — NECTAR PACKAGING (img left, text right)
+          SECTION 6: PROJECT — NECTAR PACKAGING
       ═══════════════════════════════════════════════════ */}
       <section id="proj4" className="fp-section" style={{ background: '#FFFFFF', display: 'flex' }}>
         {/* Image */}
@@ -391,7 +476,7 @@ export default function Portfolio() {
             src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&h=900&fit=crop&auto=format&q=80"
             alt="Nectar Packaging"
             width={800} height={900}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', ...imgPx(12) }}
           />
         </div>
 
@@ -402,27 +487,28 @@ export default function Portfolio() {
           </div>
           <span className={`badge anim-left d2 ${isVisible(5) ? '' : 'opacity-0'}`}
             style={{ color: '#4ECDC4', marginBottom: 20, alignSelf: 'flex-start' }}>
-            Packaging Design
+            パッケージデザイン
           </span>
           <h2 className={`font-elegant anim-left d3 ${isVisible(5) ? '' : 'opacity-0'}`}
             style={{ fontSize: 52, fontWeight: 300, lineHeight: 1.1, color: '#1A1A2E', marginBottom: 24 }}>
-            Nectar<br /><em>Artisan Honey</em>
+            <SlotText text="Nectar" trigger={isVisible(5)} /><br />
+            <em><SlotText text="Artisan Honey" trigger={isVisible(5)} delay={0.2} /></em>
           </h2>
           <p className={`anim-left d4 ${isVisible(5) ? '' : 'opacity-0'}`}
             style={{ fontSize: 13.5, lineHeight: 1.85, color: '#777', maxWidth: 380 }}>
-            Packaging and visual identity for a family-run apiary in Hokkaido. The design honours traditional Japanese aesthetics while feeling contemporary on a specialty food shelf — warm, handcrafted, and genuinely joyful.
+            北海道の家族経営の養蜂場のパッケージとビジュアルアイデンティティ。伝統的な日本の美学を現代感覚で昇華させ、専門食品棚の中でも輝く、温かく手作り感あふれるデザインに仕上げました。
           </p>
           <div className={`meta-table anim-left d5 ${isVisible(5) ? '' : 'opacity-0'}`} style={{ marginTop: 32, maxWidth: 380 }}>
-            <MetaRow label="Project Name" value="Nectar Honey" />
-            <MetaRow label="Client" value="Keiko Yamamoto" />
-            <MetaRow label="Category" value="Packaging / Identity" />
-            <MetaRow label="Year" value="2024 / 01" />
+            <MetaRow label="プロジェクト名" value="Nectar Honey" />
+            <MetaRow label="クライアント" value="山本 恵子" />
+            <MetaRow label="カテゴリ" value="パッケージ / アイデンティティ" />
+            <MetaRow label="年" value="2024 / 01" />
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          SECTION 7: PROJECT — PULSE DASHBOARD (text left, img right)
+          SECTION 7: PROJECT — PULSE DASHBOARD
       ═══════════════════════════════════════════════════ */}
       <section id="proj5" className="fp-section" style={{ background: '#FFF8F0', display: 'flex' }}>
         {/* Text */}
@@ -432,21 +518,22 @@ export default function Portfolio() {
           </div>
           <span className={`badge anim-right d2 ${isVisible(6) ? '' : 'opacity-0'}`}
             style={{ color: '#FF6B6B', marginBottom: 20, alignSelf: 'flex-start' }}>
-            Data Visualisation
+            データビジュアライゼーション
           </span>
           <h2 className={`font-elegant anim-right d3 ${isVisible(6) ? '' : 'opacity-0'}`}
             style={{ fontSize: 52, fontWeight: 300, lineHeight: 1.1, color: '#1A1A2E', marginBottom: 24 }}>
-            Pulse<br /><em>Dashboard</em>
+            <SlotText text="Pulse" trigger={isVisible(6)} /><br />
+            <em><SlotText text="Dashboard" trigger={isVisible(6)} delay={0.2} /></em>
           </h2>
           <p className={`anim-right d4 ${isVisible(6) ? '' : 'opacity-0'}`}
             style={{ fontSize: 13.5, lineHeight: 1.85, color: '#777', maxWidth: 380 }}>
-            A data-rich analytics dashboard for a health-tech startup tracking patient wellness metrics. The challenge: making dense, clinical data feel warm, approachable, and actionable for both patients and clinicians.
+            患者の健康指標を追跡するヘルステックスタートアップ向けのデータリッチな分析ダッシュボード。密度の高い医療データを、患者にも医師にも直感的で温かみのある形で提供することに挑戦しました。
           </p>
           <div className={`meta-table anim-right d5 ${isVisible(6) ? '' : 'opacity-0'}`} style={{ marginTop: 32, maxWidth: 380 }}>
-            <MetaRow label="Project Name" value="Pulse Dashboard" />
-            <MetaRow label="Client" value="Dr. Alex Rivera" />
-            <MetaRow label="Category" value="UI Design / Data Viz" />
-            <MetaRow label="Year" value="2023 / 08" />
+            <MetaRow label="プロジェクト名" value="Pulse Dashboard" />
+            <MetaRow label="クライアント" value="Dr. アレックス リベラ" />
+            <MetaRow label="カテゴリ" value="UIデザイン / データ可視化" />
+            <MetaRow label="年" value="2023 / 08" />
           </div>
         </div>
 
@@ -458,13 +545,13 @@ export default function Portfolio() {
             src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=800&h=900&fit=crop&auto=format&q=80"
             alt="Pulse Dashboard"
             width={800} height={900}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', ...imgPx(12) }}
           />
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════
-          SECTION 8: PROJECT GRID — THREE COLUMNS
+          SECTION 8: PROJECT GRID
       ═══════════════════════════════════════════════════ */}
       <section id="proj6" className="fp-section" style={{ background: '#FFFFFF', display: 'flex', flexDirection: 'column', padding: '60px 60px 40px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 32 }}>
@@ -474,12 +561,12 @@ export default function Portfolio() {
             </div>
             <h2 className={`font-elegant anim-up d2 ${isVisible(7) ? '' : 'opacity-0'}`}
               style={{ fontSize: 40, fontWeight: 300, color: '#1A1A2E' }}>
-              More <em>Work</em>
+              その他の<em>作品</em>
             </h2>
           </div>
           <p className={`anim-fade d3 ${isVisible(7) ? '' : 'opacity-0'}`}
             style={{ fontSize: 11, color: '#bbb', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
-            Selected projects 2022–2024
+            Selected Projects 2022–2024
           </p>
         </div>
 
@@ -488,21 +575,21 @@ export default function Portfolio() {
             {
               src: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=500&fit=crop&auto=format&q=80',
               title: 'Wave Motion',
-              cat: 'Motion Design',
+              cat: 'モーションデザイン',
               color: '#FFADB5',
               delay: 'd2',
             },
             {
               src: 'https://images.unsplash.com/photo-1508962914676-134849a727f0?w=600&h=500&fit=crop&auto=format&q=80',
               title: 'Clockwork Brand',
-              cat: 'Identity Design',
+              cat: 'アイデンティティデザイン',
               color: '#C8B8E8',
               delay: 'd4',
             },
             {
               src: 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=600&h=500&fit=crop&auto=format&q=80',
               title: 'Sweet Studio',
-              cat: 'E-Commerce',
+              cat: 'ECコマース',
               color: '#A8E6CF',
               delay: 'd6',
             },
@@ -515,7 +602,7 @@ export default function Portfolio() {
                   src={p.src}
                   alt={p.title}
                   width={600} height={500}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 8 }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 8, ...imgPx(8) }}
                 />
               </div>
               <div>
@@ -533,17 +620,18 @@ export default function Portfolio() {
       <section id="contact" className="fp-section" style={{ background: '#FFFFFF', display: 'flex' }}>
         {/* Left: large text */}
         <div style={{ flex: 1, padding: '80px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
-          {/* bg accent */}
-          <div style={{ position: 'absolute', bottom: -60, left: -60, width: 300, height: 300, background: '#4ECDC4', borderRadius: '50%', opacity: 0.08 }} />
-          <div style={{ position: 'absolute', top: -40, right: -40, width: 200, height: 200, background: '#FFD166', borderRadius: '50%', opacity: 0.12 }} />
+          {/* bg accent blobs with parallax */}
+          <div style={{ position: 'absolute', bottom: -60, left: -60, width: 300, height: 300, background: '#4ECDC4', borderRadius: '50%', opacity: 0.08, ...blobPx(-20, -16) }} />
+          <div style={{ position: 'absolute', top: -40, right: -40, width: 200, height: 200, background: '#FFD166', borderRadius: '50%', opacity: 0.12, ...blobPx(16, -12) }} />
 
           <p className={`anim-up d1 ${isVisible(8) ? '' : 'opacity-0'}`}
             style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#4ECDC4', fontWeight: 600, marginBottom: 16 }}>
-            Let's Work Together
+            一緒につくろう
           </p>
           <h2 className={`font-display anim-up d2 ${isVisible(8) ? '' : 'opacity-0'}`}
             style={{ fontSize: 'clamp(64px, 8vw, 110px)', color: '#1A1A2E', lineHeight: 0.92, marginBottom: 40 }}>
-            CONTACT<br />US
+            <SlotText text="CONTACT" trigger={isVisible(8)} /><br />
+            <SlotText text="US" trigger={isVisible(8)} delay={0.3} />
           </h2>
 
           <div className={`anim-up d3 ${isVisible(8) ? '' : 'opacity-0'}`}
@@ -551,7 +639,7 @@ export default function Portfolio() {
             {[
               { icon: 'P', label: '+81 (0)3 1234 5678' },
               { icon: 'E', label: 'hello@isabellachen.design' },
-              { icon: 'A', label: '3-12 Minami-Aoyama, Tokyo 107-0062' },
+              { icon: 'A', label: '東京都港区南青山3丁目12番地 107-0062' },
             ].map(({ icon, label }) => (
               <div key={icon} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                 <span style={{
@@ -566,12 +654,10 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* Barcode */}
+          {/* Animated bars decoration */}
           <div className={`anim-fade d6 ${isVisible(8) ? '' : 'opacity-0'}`}
-            style={{ position: 'absolute', bottom: 50, right: 40, display: 'flex', gap: 2, alignItems: 'flex-end' }}>
-            {[22, 14, 30, 18, 26, 12, 24, 16, 28, 20, 32, 14].map((h, i) => (
-              <div key={i} style={{ width: 3, height: h, background: '#1A1A2E', opacity: 0.2, borderRadius: 1 }} />
-            ))}
+            style={{ position: 'absolute', bottom: 50, right: 40 }}>
+            <AnimatedBars color="rgba(26,26,46,0.2)" />
           </div>
         </div>
 
@@ -582,9 +668,9 @@ export default function Portfolio() {
             style={{ background: '#FFD166' }}>
             <Image
               src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=700&h=500&fit=crop&auto=format&q=80"
-              alt="creative workspace"
+              alt="クリエイティブワークスペース"
               width={700} height={500}
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', ...imgPx(10) }}
             />
           </div>
           <div className={`img-zoom anim-scale d5 ${isVisible(8) ? '' : 'opacity-0'}`}
@@ -592,9 +678,9 @@ export default function Portfolio() {
             style={{ background: '#FFADB5' }}>
             <Image
               src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&h=500&fit=crop&auto=format&q=80"
-              alt="design process"
+              alt="デザインプロセス"
               width={700} height={500}
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', ...imgPx(10) }}
             />
           </div>
         </div>
