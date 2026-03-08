@@ -9,38 +9,66 @@ const SLOT_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZアイウエオカキクケコサ�
 const IMGS = {
   hero1:     ['/images/hero1.jpg',     '/images/hero1b.jpg'],
   hero2:     ['/images/hero2.jpg',     '/images/hero2b.jpg'],
-  bloom:     ['/images/bloom.jpg',     '/images/bloom2.jpg'],
-  tempo:     ['/images/tempo.jpg',     '/images/tempo2.jpg'],
-  lumi:      ['/images/lumi.jpg',      '/images/lumi2.jpg'],
-  nectar:    ['/images/nectar.jpg',    '/images/nectar2.jpg'],
-  pulse:     ['/images/pulse.jpg',     '/images/pulse2.jpg'],
-  wave:      ['/images/wave.jpg',      '/images/wave2.jpg'],
-  clockwork: ['/images/clockwork.jpg', '/images/clockwork2.jpg'],
-  sweet:     ['/images/sweet.jpg',     '/images/sweet2.jpg'],
+  bloom:     ['/images/bloom.jpg',     '/images/bloom2.jpg',     '/images/bloom3.jpg'],
+  tempo:     ['/images/tempo.jpg',     '/images/tempo2.jpg',     '/images/tempo3.jpg'],
+  lumi:      ['/images/lumi.jpg',      '/images/lumi2.jpg',      '/images/lumi3.jpg'],
+  nectar:    ['/images/nectar.jpg',    '/images/nectar2.jpg',    '/images/nectar3.jpg'],
+  pulse:     ['/images/pulse.jpg',     '/images/pulse2.jpg',     '/images/pulse3.jpg'],
+  wave:      ['/images/wave.jpg',      '/images/wave2.jpg',      '/images/wave3.jpg'],
+  clockwork: ['/images/clockwork.jpg', '/images/clockwork2.jpg', '/images/clockwork3.jpg'],
+  sweet:     ['/images/sweet.jpg',     '/images/sweet2.jpg',     '/images/sweet3.jpg'],
   contact1:  ['/images/contact1.jpg'],
   contact2:  ['/images/contact2.jpg'],
 }
 
-// ─── CycleFill — cross-fading fill-mode images ────────────────────────────────
+// ─── CycleFill — cross-fading fill-mode images with thumbnail strip ───────────
 
 function CycleFill({ srcs, alt, sizes, style }: {
   srcs: string[]; alt: string; sizes?: string; style?: React.CSSProperties
 }) {
   const [curr, setCurr] = useState(0)
+  const idRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined)
+
   useEffect(() => {
     if (srcs.length <= 1) return
-    let id: ReturnType<typeof setInterval>
     const t = setTimeout(() => {
-      id = setInterval(() => setCurr(i => (i + 1) % srcs.length), 7000)
+      idRef.current = setInterval(() => setCurr(i => (i + 1) % srcs.length), 7000)
     }, Math.random() * 4000)
-    return () => { clearTimeout(t); clearInterval(id) }
+    return () => { clearTimeout(t); clearInterval(idRef.current) }
   }, [srcs.length])
+
+  const goTo = (i: number) => {
+    setCurr(i)
+    clearInterval(idRef.current)
+    idRef.current = setInterval(() => setCurr(p => (p + 1) % srcs.length), 7000)
+  }
+
   return (
     <>
       {srcs.map((src, i) => (
         <Image key={src} src={src} alt={i === 0 ? alt : ''} fill sizes={sizes}
           style={{ ...style, opacity: i === curr ? 1 : 0, transition: 'opacity 1.2s ease', zIndex: i === curr ? 1 : 0 }} />
       ))}
+      {srcs.length > 1 && (
+        <div style={{
+          position: 'absolute', bottom: 14, left: '50%', transform: 'translateX(-50%)',
+          display: 'flex', gap: 6, zIndex: 10,
+          padding: '5px 7px', borderRadius: 8,
+          background: 'rgba(0,0,0,0.28)', backdropFilter: 'blur(6px)',
+        }}>
+          {srcs.map((src, i) => (
+            <button key={src} type="button" onClick={() => goTo(i)} style={{
+              width: 52, height: 38, borderRadius: 5, overflow: 'hidden', padding: 0,
+              border: i === curr ? '2px solid rgba(255,255,255,0.95)' : '2px solid rgba(255,255,255,0.3)',
+              cursor: 'pointer', background: 'none', flexShrink: 0,
+              transition: 'border-color 0.25s ease', outline: 'none',
+            }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={src} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </button>
+          ))}
+        </div>
+      )}
     </>
   )
 }
@@ -51,14 +79,16 @@ function CycleImage({ srcs, alt, width, height, style }: {
   srcs: string[]; alt: string; width: number; height: number; style?: React.CSSProperties
 }) {
   const [curr, setCurr] = useState(0)
+  const idRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined)
+
   useEffect(() => {
     if (srcs.length <= 1) return
-    let id: ReturnType<typeof setInterval>
     const t = setTimeout(() => {
-      id = setInterval(() => setCurr(i => (i + 1) % srcs.length), 7000)
+      idRef.current = setInterval(() => setCurr(i => (i + 1) % srcs.length), 7000)
     }, Math.random() * 4000)
-    return () => { clearTimeout(t); clearInterval(id) }
+    return () => { clearTimeout(t); clearInterval(idRef.current) }
   }, [srcs.length])
+
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%' }}>
       {srcs.map((src, i) => (
